@@ -11,19 +11,19 @@ namespace FOconfig.NET
     class ReadAndWriteFiles
     {
         public bool IsNewConfig=true;
-        string nameFile;                                        //Назву файла
+        private readonly string _nameFile;                                        //Назву файла
        // int countOfStrings = 0;                               //Кількість рядків
-        List<string> ListOfStrings = new List<string>();        //Список рядків файлу
+        private readonly List<string> ListOfStrings = new List<string>();        //Список рядків файлу
         public string[] arrayListOfStrings;                     // Масив рядків файлу
         public bool noOptimizedSearch = false;
 
         //Конструктор
         public ReadAndWriteFiles(string nameFile)
         {
-            this.nameFile = nameFile;
+            _nameFile = nameFile;
             
             //Якщо існує файл - зчитати, якщо ні - створити новый.
-            StreamReader file = new StreamReader(new FileStream(nameFile, FileMode.OpenOrCreate), Encoding.Default);
+            StreamReader file = new StreamReader(new FileStream(_nameFile, FileMode.OpenOrCreate), Encoding.Default);
  
             string str;
             while ((str = file.ReadLine()) != null) // цикл відбувається доки в файлі є рядки
@@ -81,7 +81,7 @@ namespace FOconfig.NET
         }
 
         // Знаходить рядок з вказаною послідовністю символів, та дописує передане значення
-        public void WriteValueInLine(string str, string value, bool isConfig)
+        public void WriteValueInLine(string str, string value)
         {
             bool isNotLine = true;
             for (int i = 0; i < arrayListOfStrings.Length; i++)
@@ -109,7 +109,7 @@ namespace FOconfig.NET
             ListOfStrings.Add(str);
         }
 
-        public void WriteTextInLine(string str, string value, bool isConfig)
+        public void WriteTextInLine(string str, string value)
         {
             bool isNotLine = true;
             for (int i = 0; i < arrayListOfStrings.Length; i++)
@@ -126,7 +126,7 @@ namespace FOconfig.NET
 
 
         // Запис в файл
-        public void writeFile(string nameFile)
+        public void WriteFile(string nameFile)
         {
             StreamWriter file = new StreamWriter(new FileStream(nameFile, FileMode.Create));
          
@@ -142,4 +142,4 @@ namespace FOconfig.NET
             file.Close();
         }
     }
-}
+}//145

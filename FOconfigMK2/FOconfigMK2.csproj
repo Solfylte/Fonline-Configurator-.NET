@@ -62,8 +62,8 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Копия FormLite.resx">
-      <DependentUpon>Копия FormLite.cs</DependentUpon>
+    <EmbeddedResource Include="FormLite.resx">
+      <DependentUpon>FormLite.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -82,12 +82,18 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="ReadAndWriteFiles.cs" />
-    <Compile Include="Копия FormLite.cs">
+    <Compile Include="FormLite.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Копия FormLite.Designer.cs">
-      <DependentUpon>Копия FormLite.cs</DependentUpon>
+    <Compile Include="FormLite.Designer.cs">
+      <DependentUpon>FormLite.cs</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
