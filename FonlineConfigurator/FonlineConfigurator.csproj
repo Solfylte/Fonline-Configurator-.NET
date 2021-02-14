@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="FonlineConfigData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reader.cs" />
+    <Compile Include="Writer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FoConfig\Configurator.csproj">

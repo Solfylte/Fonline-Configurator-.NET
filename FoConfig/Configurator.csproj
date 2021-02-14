@@ -41,8 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FonlineConfigData.cs" />
-    <Compile Include="IConfigData.cs" />
+    <Compile Include="ConfigManager.cs" />
+    <Compile Include="DataManager.cs" />
+    <Compile Include="Interfaces\IConfigManager.cs" />
+    <Compile Include="Interfaces\IDefaultConfigData.cs" />
+    <Compile Include="Interfaces\IDataManager.cs" />
+    <Compile Include="Interfaces\IReader.cs" />
+    <Compile Include="Interfaces\IWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

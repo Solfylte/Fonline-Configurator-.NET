@@ -7,15 +7,18 @@ using Configurator;
 
 namespace FoConfig
 {
-    public class FonlineConfigData: IConfigData
+    public class FonlineConfigData: IDefaultConfigData
     {
-        public Dictionary<string, string> StringVelues { get => _stringVelues; set => _stringVelues = value; }
-        public Dictionary<string, bool> BoolVelues { get => _boolVelues; set => _boolVelues = value; }
-        public Dictionary<string, ushort> UshortVelues { get => _ushortVelues; set => _ushortVelues = value; }
+        public string Header => _header;
+        public Dictionary<string, string> StringValues { get => _stringValues; set => _stringValues = value; }
+        public Dictionary<string, bool> BoolValues { get => _boolValues; set => _boolValues = value; }
+        public Dictionary<string, ushort> UshortValues { get => _ushortValues; set => _ushortValues = value; }
 
-        private Dictionary<string, string> _stringVelues = new Dictionary<string, string>();
-        private Dictionary<string, bool> _boolVelues = new Dictionary<string, bool>();
-        private Dictionary<string, ushort> _ushortVelues = new Dictionary<string, ushort>();
+        private Dictionary<string, string> _stringValues = new Dictionary<string, string>();
+        private Dictionary<string, bool> _boolValues = new Dictionary<string, bool>();
+        private Dictionary<string, ushort> _ushortValues = new Dictionary<string, ushort>();
+
+        private string _header;
 
         private string Language = "engl";
         private bool WinNotify = true;
@@ -58,6 +61,8 @@ namespace FoConfig
 
         public FonlineConfigData()
         {
+            _header = "[Game Options]";
+
             FillStringValues();
             FillBoolValues();
             FillUShortValues();
@@ -65,52 +70,52 @@ namespace FoConfig
 
         private void FillStringValues()
         {
-            _stringVelues.Add("Language", Language);
-            _stringVelues.Add("RemoteHost", RemoteHost);
-            _stringVelues.Add("ProxyHost", ProxyHost);
-            _stringVelues.Add("ProxyUser", ProxyUser);
-            _stringVelues.Add("ProxyPass", ProxyPass);
-            _stringVelues.Add("FonlineDataPath", FonlineDataPath);
-            _stringVelues.Add("WindowName", WindowName);
+            _stringValues.Add("Language", Language);
+            _stringValues.Add("RemoteHost", RemoteHost);
+            _stringValues.Add("ProxyHost", ProxyHost);
+            _stringValues.Add("ProxyUser", ProxyUser);
+            _stringValues.Add("ProxyPass", ProxyPass);
+            _stringValues.Add("FonlineDataPath", FonlineDataPath);
+            _stringValues.Add("WindowName", WindowName);
         }
 
         private void FillBoolValues()
         {
-            _boolVelues.Add("WinNotify", WinNotify);
-            _boolVelues.Add("SoundNotify", SoundNotify);
-            _boolVelues.Add("InvertMessBox", InvertMessBox);
-            _boolVelues.Add("Logging", Logging);
-            _boolVelues.Add("LoggingTime", LoggingTime);
-            _boolVelues.Add("AlwaysRun", AlwaysRun);
-            _boolVelues.Add("FullScreen", FullScreen);
-            _boolVelues.Add("VSync", VSync);
-            _boolVelues.Add("AlwaysOnTop", AlwaysOnTop);
+            _boolValues.Add("WinNotify", WinNotify);
+            _boolValues.Add("SoundNotify", SoundNotify);
+            _boolValues.Add("InvertMessBox", InvertMessBox);
+            _boolValues.Add("Logging", Logging);
+            _boolValues.Add("LoggingTime", LoggingTime);
+            _boolValues.Add("AlwaysRun", AlwaysRun);
+            _boolValues.Add("FullScreen", FullScreen);
+            _boolValues.Add("VSync", VSync);
+            _boolValues.Add("AlwaysOnTop", AlwaysOnTop);
         }
 
         private void FillUShortValues()
         {
-            _ushortVelues.Add("FixedFPS", FixedFPS);
-            _ushortVelues.Add("ScrollDelay", ScrollDelay);
-            _ushortVelues.Add("ScrollStep", ScrollStep);
-            _ushortVelues.Add("TextDelay", TextDelay);
-            _ushortVelues.Add("RemotePort", RemotePort);
-            _ushortVelues.Add("ProxyType", ProxyType);
-            _ushortVelues.Add("ProxyPort", ProxyPort);
-            _ushortVelues.Add("ScreenWidth", ScreenWidth);
-            _ushortVelues.Add("ScreenHeight", ScreenHeight);
-            _ushortVelues.Add("Light", Light);
-            _ushortVelues.Add("FlushValue", FlushValue);
-            _ushortVelues.Add("BaseTexture", BaseTexture);
-            _ushortVelues.Add("DoubleClickTime", DoubleClickTime);
-            _ushortVelues.Add("Animation3dSmoothTime", Animation3dSmoothTime);
-            _ushortVelues.Add("Animation3dFPS", Animation3dFPS);
-            _ushortVelues.Add("MusicVolume", MusicVolume);
-            _ushortVelues.Add("SoundVolume", SoundVolume);
-            _ushortVelues.Add("DefaultCombatMode", DefaultCombatMode);
-            _ushortVelues.Add("IndicatorType", IndicatorType);
-            _ushortVelues.Add("CombatMessagesType", CombatMessagesType);
-            _ushortVelues.Add("DamageHitDelay", DamageHitDelay);
-            _ushortVelues.Add("MultiSampling", MultiSampling);
+            _ushortValues.Add("FixedFPS", FixedFPS);
+            _ushortValues.Add("ScrollDelay", ScrollDelay);
+            _ushortValues.Add("ScrollStep", ScrollStep);
+            _ushortValues.Add("TextDelay", TextDelay);
+            _ushortValues.Add("RemotePort", RemotePort);
+            _ushortValues.Add("ProxyType", ProxyType);
+            _ushortValues.Add("ProxyPort", ProxyPort);
+            _ushortValues.Add("ScreenWidth", ScreenWidth);
+            _ushortValues.Add("ScreenHeight", ScreenHeight);
+            _ushortValues.Add("Light", Light);
+            _ushortValues.Add("FlushValue", FlushValue);
+            _ushortValues.Add("BaseTexture", BaseTexture);
+            _ushortValues.Add("DoubleClickTime", DoubleClickTime);
+            _ushortValues.Add("Animation3dSmoothTime", Animation3dSmoothTime);
+            _ushortValues.Add("Animation3dFPS", Animation3dFPS);
+            _ushortValues.Add("MusicVolume", MusicVolume);
+            _ushortValues.Add("SoundVolume", SoundVolume);
+            _ushortValues.Add("DefaultCombatMode", DefaultCombatMode);
+            _ushortValues.Add("IndicatorType", IndicatorType);
+            _ushortValues.Add("CombatMessagesType", CombatMessagesType);
+            _ushortValues.Add("DamageHitDelay", DamageHitDelay);
+            _ushortValues.Add("MultiSampling", MultiSampling);
         }
     }
 }
