@@ -10,13 +10,13 @@ namespace FoConfig
     public class FonlineConfigData: IDefaultConfigData
     {
         public string Header => _header;
-        public Dictionary<string, string> StringValues { get => _stringValues; set => _stringValues = value; }
-        public Dictionary<string, bool> BoolValues { get => _boolValues; set => _boolValues = value; }
-        public Dictionary<string, ushort> UshortValues { get => _ushortValues; set => _ushortValues = value; }
+        public Dictionary<string, string> StringValues { get => _stringValues; }
+        public Dictionary<string, bool> BoolValues { get => _boolValues; }
+        public Dictionary<string, int> IntValues { get => _intValues; }
 
         private Dictionary<string, string> _stringValues = new Dictionary<string, string>();
         private Dictionary<string, bool> _boolValues = new Dictionary<string, bool>();
-        private Dictionary<string, ushort> _ushortValues = new Dictionary<string, ushort>();
+        private Dictionary<string, int> _intValues = new Dictionary<string, int>();
 
         private string _header;
 
@@ -94,28 +94,28 @@ namespace FoConfig
 
         private void FillUShortValues()
         {
-            _ushortValues.Add("FixedFPS", FixedFPS);
-            _ushortValues.Add("ScrollDelay", ScrollDelay);
-            _ushortValues.Add("ScrollStep", ScrollStep);
-            _ushortValues.Add("TextDelay", TextDelay);
-            _ushortValues.Add("RemotePort", RemotePort);
-            _ushortValues.Add("ProxyType", ProxyType);
-            _ushortValues.Add("ProxyPort", ProxyPort);
-            _ushortValues.Add("ScreenWidth", ScreenWidth);
-            _ushortValues.Add("ScreenHeight", ScreenHeight);
-            _ushortValues.Add("Light", Light);
-            _ushortValues.Add("FlushValue", FlushValue);
-            _ushortValues.Add("BaseTexture", BaseTexture);
-            _ushortValues.Add("DoubleClickTime", DoubleClickTime);
-            _ushortValues.Add("Animation3dSmoothTime", Animation3dSmoothTime);
-            _ushortValues.Add("Animation3dFPS", Animation3dFPS);
-            _ushortValues.Add("MusicVolume", MusicVolume);
-            _ushortValues.Add("SoundVolume", SoundVolume);
-            _ushortValues.Add("DefaultCombatMode", DefaultCombatMode);
-            _ushortValues.Add("IndicatorType", IndicatorType);
-            _ushortValues.Add("CombatMessagesType", CombatMessagesType);
-            _ushortValues.Add("DamageHitDelay", DamageHitDelay);
-            _ushortValues.Add("MultiSampling", MultiSampling);
+            _intValues.Add("FixedFPS", FixedFPS);
+            _intValues.Add("ScrollDelay", ScrollDelay);
+            _intValues.Add("ScrollStep", ScrollStep);
+            _intValues.Add("TextDelay", TextDelay);
+            _intValues.Add("RemotePort", RemotePort);
+            _intValues.Add("ProxyType", ProxyType);
+            _intValues.Add("ProxyPort", ProxyPort);
+            _intValues.Add("ScreenWidth", ScreenWidth);
+            _intValues.Add("ScreenHeight", ScreenHeight);
+            _intValues.Add("Light", Light);
+            _intValues.Add("FlushValue", FlushValue);
+            _intValues.Add("BaseTexture", BaseTexture);
+            _intValues.Add("DoubleClickTime", DoubleClickTime);
+            _intValues.Add("Animation3dSmoothTime", Animation3dSmoothTime);
+            _intValues.Add("Animation3dFPS", Animation3dFPS);
+            _intValues.Add("MusicVolume", MusicVolume);
+            _intValues.Add("SoundVolume", SoundVolume);
+            _intValues.Add("DefaultCombatMode", DefaultCombatMode);
+            _intValues.Add("IndicatorType", IndicatorType);
+            _intValues.Add("CombatMessagesType", CombatMessagesType);
+            _intValues.Add("DamageHitDelay", DamageHitDelay);
+            _intValues.Add("MultiSampling", MultiSampling);
         }
     }
 }

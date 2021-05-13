@@ -4,9 +4,9 @@ namespace Configurator
 {
     public interface IDefaultConfigData
     {
-        Dictionary<string, string> StringValues { get; set; }
-        Dictionary<string, bool> BoolValues { get; set; }
-        Dictionary<string, ushort> UshortValues { get; set; }
+        Dictionary<string, string> StringValues { get; }
+        Dictionary<string, bool> BoolValues { get; }
+        Dictionary<string, int> IntValues { get; }
         string Header { get; }
     }
 }

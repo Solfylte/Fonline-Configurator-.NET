@@ -10,7 +10,7 @@ namespace Configurator
         private Dictionary<string, Dictionary<string, string>> _сonfigurationFileSections = new Dictionary<string, Dictionary<string, string>>();
 
         private List<string> _fileLines = new List<string>();
-        private string _currentHeader;
+        private string _currentHeader = "";
 
         private IWriter _writer;
         private IReader _reader;
@@ -83,7 +83,11 @@ namespace Configurator
                 _fileLines.Add(configSection.Key);
                 foreach (var line in configSection.Value)
                      _fileLines.Add(GetFormatedConfigLine(line));
+
+                _fileLines.Add("");
             }
+
+            _writer.Write(_fileLines, _path);
         }
 
         private string GetFormatedConfigLine(KeyValuePair<string, string> line) => $"{line.Key} = {line.Value}";
