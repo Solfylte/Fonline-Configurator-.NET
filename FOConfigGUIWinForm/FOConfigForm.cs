@@ -54,21 +54,21 @@ namespace FOConfigGUIWinForm
 
         private void GetOther()
         {
-            comboBoxLanguage.SelectedValue = GetString("Language");
-            checkBoxWinNotify.Checked = GetBool("WinNotify");
-            checkBoxSoundNotify.Checked = GetBool("SoundNotify");
-            checkBoxInvertMessBox.Checked = GetBool("InvertMessBox");
-            checkBoxLogging.Checked = GetBool("Logging");
-            checkBoxLoggingTime.Checked = GetBool("LoggingTime");
-            numericUpDownFixedFPS.Value = GetInt("FixedFPS");
+            comboBoxLanguage.SelectedValue = GetValue<string>("Language");
+            checkBoxWinNotify.Checked = GetValue<bool>("WinNotify");
+            checkBoxSoundNotify.Checked = GetValue<bool>("SoundNotify");
+            checkBoxInvertMessBox.Checked = GetValue<bool>("InvertMessBox");
+            checkBoxLogging.Checked = GetValue<bool>("Logging");
+            checkBoxLoggingTime.Checked = GetValue<bool>("LoggingTime");
+            numericUpDownFixedFPS.Value = GetValue<int>("FixedFPS");
         }
 
         private void GetGame()
         {
-            numericUpDownScrollDelay.Value = GetInt("ScrollDelay");
-            numericUpDownScrollStep.Value = GetInt("ScrollStep");
-            numericUpDownTextDelay.Value = GetInt("TextDelay");
-            checkBoxAlwaysRun.Checked = GetBool("AlwaysRun");
+            numericUpDownScrollDelay.Value = GetValue<int>("ScrollDelay");
+            numericUpDownScrollStep.Value = GetValue<int>("ScrollStep");
+            numericUpDownTextDelay.Value = GetValue<int>("TextDelay");
+            checkBoxAlwaysRun.Checked = GetValue<bool>("AlwaysRun");
         }
 
         private void GetCombat()
@@ -76,44 +76,44 @@ namespace FOConfigGUIWinForm
             GetCombatModeRadiobutton();
             GetIndicatorTypeRadiobutton();
             GetCombatMessageTypeRadiobutton();
-            numericUpDownDamageHitDelay.Value = GetInt("DamageHitDelay");
+            numericUpDownDamageHitDelay.Value = GetValue<int>("DamageHitDelay");
         }
 
         private void GetNet()
         {
-            comboBoxRemoteHost.SelectedValue = GetString("RemoteHost");
-            numericUpDownRemotePort.Value = GetInt("RemotePort");
+            comboBoxRemoteHost.SelectedValue = GetValue<string>("RemoteHost");
+            numericUpDownRemotePort.Value = GetValue<int>("RemotePort");
             GetProxyTypeRadioButton();
-            comboBoxProxyHost.SelectedValue = GetString("ProxyHost");
-            numericUpDownProxyPort.Value = GetInt("ProxyPort");
-            textBoxProxyUser.Text = GetString("ProxyUser");
-            textBoxProxyPass.Text = GetString("ProxyPass");
+            comboBoxProxyHost.SelectedValue = GetValue<string>("ProxyHost");
+            numericUpDownProxyPort.Value = GetValue<int>("ProxyPort");
+            textBoxProxyUser.Text = GetValue<string>("ProxyUser");
+            textBoxProxyPass.Text = GetValue<string>("ProxyPass");
         }
 
         private void GetVideo()
         {
-            comboBoxScreenWidth.SelectedValue = GetInt("ScreenWidth");
-            comboBoxScreenHeight.SelectedValue = GetInt("ScreenHeight");
-            numericUpDownLight.Value = GetInt("Light");
-            numericUpDownFlushValue.Value = GetInt("FlushValue");
-            numericUpDownBaseTexture.Value = GetInt("BaseTexture");
-            checkBoxFullScreen.Checked = GetBool("FullScreen");
-            checkBoxVSync.Checked = GetBool("VSync");
-            checkBoxAlwaysOnTop.Checked = GetBool("AlwaysOnTop");
-            numericUpDownAnimation3dSmoothTime.Value = GetInt("Animation3dSmoothTime");
-            numericUpDownAnimation3dFPS.Value = GetInt("Animation3dFPS");
-            comboBoxMultiSampling.SelectedValue = GetInt("MultiSampling");
+            comboBoxScreenWidth.SelectedValue = GetValue<int>("ScreenWidth");
+            comboBoxScreenHeight.SelectedValue = GetValue<int>("ScreenHeight");
+            numericUpDownLight.Value = GetValue<int>("Light");
+            numericUpDownFlushValue.Value = GetValue<int>("FlushValue");
+            numericUpDownBaseTexture.Value = GetValue<int>("BaseTexture");
+            checkBoxFullScreen.Checked = GetValue<bool>("FullScreen");
+            checkBoxVSync.Checked = GetValue<bool>("VSync");
+            checkBoxAlwaysOnTop.Checked = GetValue<bool>("AlwaysOnTop");
+            numericUpDownAnimation3dSmoothTime.Value = GetValue<int>("Animation3dSmoothTime");
+            numericUpDownAnimation3dFPS.Value = GetValue<int>("Animation3dFPS");
+            comboBoxMultiSampling.SelectedValue = GetValue<int>("MultiSampling");
         }
 
         private void GetSound()
         {
-            trackBarMusicVolume.Value = GetInt("MusicVolume");
-            trackBarSoundVolume.Value = GetInt("SoundVolume");
+            trackBarMusicVolume.Value = GetValue<int>("MusicVolume");
+            trackBarSoundVolume.Value = GetValue<int>("SoundVolume");
         }
 
         private void GetCombatModeRadiobutton()
         {
-            _combatMode = (CombatMode)GetInt("DefaultCombatMode");
+            _combatMode = (CombatMode)GetValue<int>("DefaultCombatMode");
             radioButtonCombatBoth.Checked = _combatMode == CombatMode.BOTH;
             radioButtonCombatRealTime.Checked = _combatMode == CombatMode.REAL_TIME;
             radioButtonCombatTurnBased.Checked = _combatMode == CombatMode.TURN_BASED;
@@ -121,7 +121,7 @@ namespace FOConfigGUIWinForm
 
         private void GetIndicatorTypeRadiobutton()
         {
-            _indicatorType = (IndicatorType)GetInt("IndicatorType");
+            _indicatorType = (IndicatorType)GetValue<int>("IndicatorType");
             radioButtonIndicatorLines.Checked = _indicatorType == IndicatorType.LINES;
             radioButtonIndicatorNumbers.Checked = _indicatorType == IndicatorType.NUMBERS;
             radioButtonIndicatorBoth.Checked = _indicatorType == IndicatorType.LINES_AND_NUMBERS;
@@ -129,23 +129,21 @@ namespace FOConfigGUIWinForm
 
         private void GetCombatMessageTypeRadiobutton()
         {
-            _combatMessageType = (CombatMessageType)GetInt("CombatMessagesType");
+            _combatMessageType = (CombatMessageType)GetValue<int>("CombatMessagesType");
             radioButtonMessagesBrief.Checked = _combatMessageType == CombatMessageType.BRIEF;
             radioButtonMessagesVerbose.Checked = _combatMessageType == CombatMessageType.VERBOSE;
         }
 
         private void GetProxyTypeRadioButton()
         {
-            _proxyType = (ProxyType)GetInt("ProxyType");
+            _proxyType = (ProxyType)GetValue<int>("ProxyType");
             radioButtonProxyTypeNone.Checked = _proxyType == ProxyType.NONE;
             radioButtonProxyTypeSocks4.Checked = _proxyType == ProxyType.SOCKS4;
             radioButtonProxyTypeSocks5.Checked = _proxyType == ProxyType.SOCKS5;
             radioButtonProxyTypeHttp.Checked = _proxyType == ProxyType.HTTP;
         }
 
-        private string GetString(string key) => _config.GetString(key);
-        private bool GetBool(string key) => _config.GetBool(key);
-        private int GetInt(string key) => _config.GetInt(key);
+        private T GetValue<T>(string key) => _config.GetValue<T>(key);
         private void SetValue(string key, string value) => _config.SetValue<string>(key, value);
         private void SetValue(string key, bool value) => _config.SetValue<bool>(key, value);
         private void SetValue(string key, decimal value) => _config.SetValue<int>(key, (int)value);
@@ -219,8 +217,8 @@ namespace FOConfigGUIWinForm
 
         private void SetSound()
         {
-            trackBarMusicVolume.Value = GetInt("MusicVolume");
-            trackBarSoundVolume.Value = GetInt("SoundVolume");
+            trackBarMusicVolume.Value = GetValue<int>("MusicVolume");
+            trackBarSoundVolume.Value = GetValue<int>("SoundVolume");
         }
 
         private void buttonPlay_Click(object sender, EventArgs e)

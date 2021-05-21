@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FOConfigGUIWinForm", "FOConfigGUIWinForm\FOConfigGUIWinForm.csproj", "{5F78D51D-D994-46BA-8444-6EE96F48E362}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configurator", "FoConfig\Configurator.csproj", "{3E304CD0-08AF-4095-94BF-8E283D2C5BB4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseConfigurator", "FoConfig\BaseConfigurator.csproj", "{3E304CD0-08AF-4095-94BF-8E283D2C5BB4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FonlineConfigurator", "FonlineConfigurator\FonlineConfigurator.csproj", "{F0261F60-F5DE-4C8E-9130-DFE2DFA32180}"
 EndProject

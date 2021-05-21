@@ -4,9 +4,9 @@ using System.Text;
 using System.IO;
 using Configurator;
 
-namespace FoConfig
+namespace FOConfig
 {
-    public class Writer : IWriter
+    public class TextFileWriter : IWriter
     {
         private string _path;
         private List<string> _lines = new List<string>();

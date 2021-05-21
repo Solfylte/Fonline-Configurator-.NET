@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Configurator;
-using FoConfig;
+using FOConfig;
 
 namespace FOConfigGUIWinForm
 {
@@ -17,12 +17,12 @@ namespace FOConfigGUIWinForm
         [STAThread]
         static void Main()
         {
-            IReader reader = new Reader();
-            IWriter writer = new Writer();
+            IReader reader = new TextFileReader();
+            IWriter writer = new TextFileWriter();
             DataManager dataManager = new DataManager(reader, writer, "FOnline.cfg");
-            IDefaultConfigData defaultConfigData = new FonlineConfigData();
+            IDefaultConfigData defaultConfigData = new FOnlineDefaultConfigData();
 
-            IConfigManager configManager = new ConfigManager(defaultConfigData, dataManager);
+            IConfigManager configManager = new BaseConfigManager(defaultConfigData, dataManager);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

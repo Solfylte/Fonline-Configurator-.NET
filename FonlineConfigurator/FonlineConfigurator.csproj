@@ -45,16 +45,19 @@
     <Compile Include="Enums\IndicatorType - Copy.cs" />
     <Compile Include="Enums\ProxyType.cs" />
     <Compile Include="Enums\CombatMode.cs" />
-    <Compile Include="FonlineConfigData.cs" />
+    <Compile Include="FOnlineDefaultConfigData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reader.cs" />
-    <Compile Include="Writer.cs" />
+    <Compile Include="TextFileReader.cs" />
+    <Compile Include="TextFileWriter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FoConfig\Configurator.csproj">
+    <ProjectReference Include="..\FoConfig\BaseConfigurator.csproj">
       <Project>{3e304cd0-08af-4095-94bf-8e283d2c5bb4}</Project>
-      <Name>Configurator</Name>
+      <Name>BaseConfigurator</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DefaultValues.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

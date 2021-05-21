@@ -4,9 +4,9 @@ using System.Text;
 using System.IO;
 using Configurator;
 
-namespace FoConfig
+namespace FOConfig
 {
-    public class Reader : IReader
+    public class TextFileReader : IReader
     {
         private string _path;
 

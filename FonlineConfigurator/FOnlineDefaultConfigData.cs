@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Configurator;
 
-namespace FoConfig
+namespace FOConfig
 {
-    public class FonlineConfigData: IDefaultConfigData
+    public class FOnlineDefaultConfigData: IDefaultConfigData
     {
         public string Header => _header;
         public Dictionary<string, string> StringValues { get => _stringValues; }
@@ -59,7 +59,7 @@ namespace FoConfig
         private string FonlineDataPath = ".\\data";
         private string WindowName = "FOnline";
 
-        public FonlineConfigData()
+        public FOnlineDefaultConfigData()
         {
             _header = "[Game Options]";
 
