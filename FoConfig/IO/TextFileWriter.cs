@@ -2,9 +2,8 @@
 using System.Linq;
 using System.Text;
 using System.IO;
-using Configurator;
 
-namespace FOConfig
+namespace Configurator
 {
     public class TextFileWriter : IWriter
     {

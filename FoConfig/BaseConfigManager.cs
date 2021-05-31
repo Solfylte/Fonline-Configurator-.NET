@@ -9,47 +9,50 @@ namespace Configurator
     public abstract class BaseConfigManager: IConfigManager
     {
         private IDataManager dataManager;
-        private IDefaultConfigData defaultConfigData;
 
         private Dictionary<string, string> сonfigSection;
 
-        private Dictionary<Type, IConfigValueHandler> valueHandlers = new Dictionary<Type, IConfigValueHandler>();
+        protected Dictionary<Type, IConfigValueHandler> valueHandlers = new Dictionary<Type, IConfigValueHandler>();
 
-        public BaseConfigManager(IDefaultConfigData defaultConfigData, IDataManager dataManager)
+        public BaseConfigManager(IDataManager dataManager)
         {
-            this.defaultConfigData = defaultConfigData;
             this.dataManager = dataManager;
-            this.сonfigSection = this.dataManager.GetConfigSection(this.defaultConfigData.Header);
+            this.сonfigSection = this.dataManager.GetConfigSection(GetHeader());
 
-            AppendMissingPairs<string>(this.defaultConfigData.StringValues);
-            AppendMissingPairs<bool>(this.defaultConfigData.BoolValues);
-            AppendMissingPairs<int>(this.defaultConfigData.IntValues);
+            CreateValueHandlers();
+            AppendMissingPairs();
         }
 
-        private void AppendMissingPairs<T>(Dictionary<string, T> keyValuePairs)
+        protected abstract string GetHeader();
+
+        protected virtual void CreateValueHandlers()
         {
-            foreach (var key in keyValuePairs.Keys)
-                if (!IsConfigFileContainsKey(key))
-                    this.сonfigSection.Add(key, keyValuePairs[key].ToString());
+            valueHandlers.Add(typeof(string), new StringHandler(сonfigSection));
+            valueHandlers.Add(typeof(int), new IntHandler(сonfigSection));
+            valueHandlers.Add(typeof(bool), new BoolHandler(сonfigSection));
         }
 
-        private bool IsConfigFileContainsKey(string key) => this.сonfigSection.ContainsKey(key);
-
-        private void AppendFromDefaultData(string key)
+        private void AppendMissingPairs()
         {
-            this.сonfigSection.Add(key, this.defaultConfigData.StringValues[key]);
+            Dictionary<string, string> defaultConfig = GetConfigByDefault();
+            foreach (string key in defaultConfig.Keys)
+            {
+                if(!IsConfigFileContainsKey(key))
+                    this.сonfigSection.Add(key, defaultConfig[key]);
+            }
         }
+
+        protected abstract Dictionary<string, string> GetConfigByDefault();
 
         public T GetValue<T>(string key)
         {
-            T result = default;
-            if (IsConfigFileContainsKey(key))
-            {
-                IConfigValueHandler handler = valueHandlers[typeof(T)];
-                result = (T)handler.GetConvertedValue(key);
-            }
+            IConfigValueHandler handler = valueHandlers[typeof(T)];
+            return (T)handler.GetConvertedValue(key);
+        }
 
-            return result;
+        public bool GetValueByDefault<T>(string key, out T value)
+        {
+            throw new NotImplementedException();
         }
 
         public void SetValue<T>(string key, T value)
@@ -60,6 +63,8 @@ namespace Configurator
                 this.сonfigSection.Add(key, value.ToString());
         }
 
-        public void Save() => this.dataManager.SetConfigSection(this.defaultConfigData.Header, this.сonfigSection);
+        private bool IsConfigFileContainsKey(string key) => this.сonfigSection.ContainsKey(key);
+
+        public void Save() => this.dataManager.SetConfigSection(this.сonfigSection, GetHeader());
     }
 }

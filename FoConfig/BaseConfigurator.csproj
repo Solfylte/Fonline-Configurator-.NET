@@ -42,15 +42,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseConfigManager.cs" />
-    <Compile Include="DataManager.cs" />
+    <Compile Include="BaseDataManager.cs" />
     <Compile Include="Interfaces\IConfigManager.cs" />
     <Compile Include="Interfaces\IConfigValueHandler.cs" />
-    <Compile Include="Interfaces\IDefaultConfigData.cs" />
     <Compile Include="Interfaces\IDataManager.cs" />
     <Compile Include="Interfaces\IReader.cs" />
     <Compile Include="Interfaces\IWriter.cs" />
+    <Compile Include="IO\TextFileReader.cs" />
+    <Compile Include="IO\TextFileWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueHandlers.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
