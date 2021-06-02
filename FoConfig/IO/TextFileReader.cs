@@ -7,24 +7,24 @@ namespace Configurator
 {
     public class TextFileReader : IReader
     {
-        private string _path;
+        private string path;
 
-        public List<string> ReadOrCreate(string path)
+        public List<string> Read(string path, bool isCreateIfNotExist = true)
         {
-            _path = path;
+            this.path = path;
 
-            if (!File.Exists(_path))
+            if (!File.Exists(path) && isCreateIfNotExist)
             {
-                File.Create(_path);
+                File.Create(path);
                 return new List<string>();
             }
-            else 
+            else
                 return ReadAsText();
         }
 
         private List<string> ReadAsText()
         {
-            string[] lines = File.ReadAllLines(_path);
+            string[] lines = File.ReadAllLines(path);
             return lines.ToList<string>();
         }
     }

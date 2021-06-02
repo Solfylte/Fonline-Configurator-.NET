@@ -13,7 +13,8 @@ namespace FOConfig
 
         private string currentHeader = "";
 
-        public FOnlineDataManager(IReader reader, IWriter writer, string path) : base(reader, writer, path)
+        public FOnlineDataManager(IReader reader, IWriter writer, string path, bool isCreateIfNotExist = false) 
+                                : base(reader, writer, path, isCreateIfNotExist)
         {
             FillConfigurationSections();
         }
@@ -65,8 +66,10 @@ namespace FOConfig
 
         public override void SetConfigSection(Dictionary<string, string> configSection, string header)
         {
-            if (сonfigurationFileSections.ContainsKey(header))
-                сonfigurationFileSections[header] = configSection;
+            if (!сonfigurationFileSections.ContainsKey(header))
+                сonfigurationFileSections.Add(header, new Dictionary<string, string>());
+
+            сonfigurationFileSections[header] = configSection;
 
             WriteToFile();
         }

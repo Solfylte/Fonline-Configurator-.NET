@@ -50,6 +50,7 @@
     <Compile Include="Interfaces\IWriter.cs" />
     <Compile Include="IO\TextFileReader.cs" />
     <Compile Include="IO\TextFileWriter.cs" />
+    <Compile Include="IO\ManifestedXMLFileReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueHandlers.cs" />
   </ItemGroup>

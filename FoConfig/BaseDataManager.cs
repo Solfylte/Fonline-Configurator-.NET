@@ -13,13 +13,13 @@ namespace Configurator
         protected IReader reader;
         protected string path;
 
-        public BaseDataManager(IReader reader, IWriter writer, string path)
+        public BaseDataManager(IReader reader, IWriter writer, string path, bool isCreateIfNotExist = false)
         {
             this.reader = reader;
             this.writer = writer;
             this.path = path;
 
-            fileLines = reader.ReadOrCreate(path);
+            fileLines = reader.Read(path, isCreateIfNotExist);
         }
 
         public abstract Dictionary<string, string> GetConfigSection(string header = "");
