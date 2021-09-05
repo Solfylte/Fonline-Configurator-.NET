@@ -13,8 +13,8 @@ namespace FOConfig
 
         private string currentHeader = "";
 
-        public FOnlineDataManager(IReader reader, IWriter writer, string path, bool isCreateIfNotExist = false) 
-                                : base(reader, writer, path, isCreateIfNotExist)
+        public FOnlineDataManager(IReader reader, IWriter writer, string path) 
+                                : base(reader, writer, path)
         {
             FillConfigurationSections();
         }
@@ -25,7 +25,7 @@ namespace FOConfig
             {
                 if (IsHeader(line))
                 {
-                    currentHeader = line;
+                    currentHeader = GetHeader(line);
 
                     if(!IsSectionAlreadyAdded())
                         AddConfigSection();
@@ -38,6 +38,17 @@ namespace FOConfig
         }
 
         private bool IsHeader(string line) => line.Contains("[") && line.Contains("]");
+
+        private string GetHeader(string line)
+        {
+            int startIndex = line.IndexOf('[');
+            int endIndex = line.IndexOf(']') + 1;
+
+            if (endIndex < line.Length)
+                return line.Substring(startIndex, endIndex);
+
+            return line.Substring(startIndex);
+        }
 
         private void AddConfigSection()
         {
@@ -59,6 +70,16 @@ namespace FOConfig
 
         public override Dictionary<string, string> GetConfigSection(string header)
         {
+            bool isHaveSection = сonfigurationFileSections.ContainsKey(header);
+
+            if (сonfigurationFileSections.Count > 0)
+            {
+                string zeroElement = сonfigurationFileSections.Keys.ElementAt<string>(0);
+                bool zeroIsHeader = zeroElement.Equals(header, StringComparison.OrdinalIgnoreCase);
+                string test = "[Game Options]";
+                bool t1 = test.Equals(header);
+                bool t2 = test.Equals(zeroElement);
+            }
             if (сonfigurationFileSections.ContainsKey(header))
                 return сonfigurationFileSections[header];
             else return new Dictionary<string, string>();

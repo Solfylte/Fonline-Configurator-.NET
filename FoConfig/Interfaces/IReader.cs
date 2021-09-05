@@ -4,6 +4,6 @@ namespace Configurator
 {
     public interface IReader
     {
-        List<string> Read(string path, bool isCreateIfNotExist = true);
+        List<string> Read(string path);
     }
 }

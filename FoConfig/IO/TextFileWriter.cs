@@ -7,28 +7,29 @@ namespace Configurator
 {
     public class TextFileWriter : IWriter
     {
-        private string _path;
-        private List<string> _lines = new List<string>();
-        private StringBuilder _fileContent = new StringBuilder();
+        private string path;
+        private List<string> lines = new List<string>();
 
         public void Write(List<string> lines, string path)
         {
-            _path = path;
-            _lines = lines;
+            this.path = path;
+            this.lines = lines;
 
-            FillFileContent();
             WriteAsText();
         }
 
-        private void FillFileContent()
+        private void WriteAsText()
         {
-            foreach (var line in _lines)
+            if (File.Exists(path))
+                File.Delete(path);
+
+            using (StreamWriter sw = new StreamWriter(File.Create(path)))
             {
-                _fileContent.Append(line);
-                _fileContent.Append("\n");
+                foreach (var line in lines)
+                    sw.WriteLine(line);
+
+                sw.Close();
             }
         }
-
-        private void WriteAsText() => File.WriteAllText(_path, _fileContent.ToString());
     }
 }

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <FOnlineDefaultConfig>
-	<Header header = "[Game Options]"/>
+	<Header value = "[Game Options]"/>
 	<Language value="engl"/>
 	<WinNotify value="true"/>
 	<SoundNotify value="false"/>

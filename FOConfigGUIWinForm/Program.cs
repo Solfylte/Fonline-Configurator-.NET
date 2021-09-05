@@ -19,8 +19,7 @@ namespace FOConfigGUIWinForm
         {
             IReader reader = new TextFileReader();
             IWriter writer = new TextFileWriter();
-            FOnlineDataManager dataManager = new FOnlineDataManager(reader, writer, "FOnline.cfg");
-
+            IDataManager dataManager = new FOnlineDataManager(reader, writer, "FOnline.cfg");
             IConfigManager configManager = new FOnlineConfigManager(dataManager);
 
             Application.EnableVisualStyles();

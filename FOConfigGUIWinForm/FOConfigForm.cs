@@ -18,19 +18,19 @@ namespace FOConfigGUIWinForm
     {
         private const string FONLINE_APP_NAME = "FOnline.exe";
 
-        private IConfigManager _config;
+        private IConfigManager config;
 
-        private CombatMode _combatMode;
-        private IndicatorType _indicatorType;
-        private CombatMessageType _combatMessageType;
-        private ProxyType _proxyType;
+        private CombatMode combatMode;
+        private IndicatorType indicatorType;
+        private CombatMessageType combatMessageType;
+        private ProxyType proxyType;
 
         public FOConfigForm(IConfigManager configManager)
         {
             InitializeComponent();
             SetComboboxDefaultValues();
 
-            _config = configManager;
+            config = configManager;
             GetValuesFromConfigData();
         }
 
@@ -113,39 +113,39 @@ namespace FOConfigGUIWinForm
 
         private void GetCombatModeRadiobutton()
         {
-            _combatMode = (CombatMode)GetInt("DefaultCombatMode");
-            radioButtonCombatBoth.Checked = _combatMode == CombatMode.BOTH;
-            radioButtonCombatRealTime.Checked = _combatMode == CombatMode.REAL_TIME;
-            radioButtonCombatTurnBased.Checked = _combatMode == CombatMode.TURN_BASED;
+            combatMode = (CombatMode)GetInt("DefaultCombatMode");
+            radioButtonCombatBoth.Checked = combatMode == CombatMode.BOTH;
+            radioButtonCombatRealTime.Checked = combatMode == CombatMode.REAL_TIME;
+            radioButtonCombatTurnBased.Checked = combatMode == CombatMode.TURN_BASED;
         }
 
         private void GetIndicatorTypeRadiobutton()
         {
-            _indicatorType = (IndicatorType)GetInt("IndicatorType");
-            radioButtonIndicatorLines.Checked = _indicatorType == IndicatorType.LINES;
-            radioButtonIndicatorNumbers.Checked = _indicatorType == IndicatorType.NUMBERS;
-            radioButtonIndicatorBoth.Checked = _indicatorType == IndicatorType.LINES_AND_NUMBERS;
+            indicatorType = (IndicatorType)GetInt("IndicatorType");
+            radioButtonIndicatorLines.Checked = indicatorType == IndicatorType.LINES;
+            radioButtonIndicatorNumbers.Checked = indicatorType == IndicatorType.NUMBERS;
+            radioButtonIndicatorBoth.Checked = indicatorType == IndicatorType.LINES_AND_NUMBERS;
         }
 
         private void GetCombatMessageTypeRadiobutton()
         {
-            _combatMessageType = (CombatMessageType)GetInt("CombatMessagesType");
-            radioButtonMessagesBrief.Checked = _combatMessageType == CombatMessageType.BRIEF;
-            radioButtonMessagesVerbose.Checked = _combatMessageType == CombatMessageType.VERBOSE;
+            combatMessageType = (CombatMessageType)GetInt("CombatMessagesType");
+            radioButtonMessagesBrief.Checked = combatMessageType == CombatMessageType.BRIEF;
+            radioButtonMessagesVerbose.Checked = combatMessageType == CombatMessageType.VERBOSE;
         }
 
         private void GetProxyTypeRadioButton()
         {
-            _proxyType = (ProxyType)GetInt("ProxyType");
-            radioButtonProxyTypeNone.Checked = _proxyType == ProxyType.NONE;
-            radioButtonProxyTypeSocks4.Checked = _proxyType == ProxyType.SOCKS4;
-            radioButtonProxyTypeSocks5.Checked = _proxyType == ProxyType.SOCKS5;
-            radioButtonProxyTypeHttp.Checked = _proxyType == ProxyType.HTTP;
+            proxyType = (ProxyType)GetInt("ProxyType");
+            radioButtonProxyTypeNone.Checked = proxyType == ProxyType.NONE;
+            radioButtonProxyTypeSocks4.Checked = proxyType == ProxyType.SOCKS4;
+            radioButtonProxyTypeSocks5.Checked = proxyType == ProxyType.SOCKS5;
+            radioButtonProxyTypeHttp.Checked = proxyType == ProxyType.HTTP;
         }
 
-        private bool GetBool(string key) => _config.GetValue<bool>(key);
-        private string GetString(string key) => _config.GetValue<string>(key);
-        private int GetInt(string key) => _config.GetValue<int>(key);
+        private bool GetBool(string key) => config.GetValue<bool>(key);
+        private string GetString(string key) => config.GetValue<string>(key);
+        private int GetInt(string key) => config.GetValue<int>(key);
 
         private int GetClampedInt(string key, TrackBar trackBar)
         {
@@ -167,9 +167,9 @@ namespace FOConfigGUIWinForm
             return (decimal)GetClampedInt(GetInt(key), (int)numericUpDown.Minimum, (int)numericUpDown.Maximum);
         }
 
-        private void SetValue(string key, string value) => _config.SetValue<string>(key, value);
-        private void SetValue(string key, bool value) => _config.SetValue<bool>(key, value);
-        private void SetValue(string key, decimal value) => _config.SetValue<int>(key, (int)value);
+        private void SetValue(string key, string value) => config.SetValue<string>(key, value);
+        private void SetValue(string key, bool value) => config.SetValue<bool>(key, value);
+        private void SetValue(string key, decimal value) => config.SetValue<int>(key, (int)value);
 
         private void buttonSave_Click(object sender, EventArgs e) => SetValuesToConfigData();
 
@@ -182,7 +182,7 @@ namespace FOConfigGUIWinForm
             SetVideo();
             SetSound();
 
-            _config.Save();
+            config.Save();
         }
 
         private void SetOther()
@@ -206,9 +206,9 @@ namespace FOConfigGUIWinForm
 
         private void SetCombat()
         {
-            SetValue("DefaultCombatMode", (int)_combatMode);
-            SetValue("IndicatorType", (int)_indicatorType);
-            SetValue("CombatMessagesType", (int)_combatMessageType);
+            SetValue("DefaultCombatMode", (int)combatMode);
+            SetValue("IndicatorType", (int)indicatorType);
+            SetValue("CombatMessagesType", (int)combatMessageType);
             SetValue("DamageHitDelay", numericUpDownDamageHitDelay.Value);
         }
 
@@ -216,7 +216,7 @@ namespace FOConfigGUIWinForm
         {
             SetValue("RemoteHost", comboBoxRemoteHost.Text);
             SetValue("RemotePort", numericUpDownRemotePort.Value);
-            SetValue("ProxyType", (int)_proxyType);
+            SetValue("ProxyType", (int)proxyType);
             SetValue("ProxyHost", comboBoxProxyHost.Text);
             SetValue("ProxyPort", numericUpDownProxyPort.Value);
             SetValue("ProxyUser", textBoxProxyUser.Text);

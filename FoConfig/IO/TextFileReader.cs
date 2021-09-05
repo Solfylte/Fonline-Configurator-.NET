@@ -9,17 +9,14 @@ namespace Configurator
     {
         private string path;
 
-        public List<string> Read(string path, bool isCreateIfNotExist = true)
+        public List<string> Read(string path)
         {
             this.path = path;
 
-            if (!File.Exists(path) && isCreateIfNotExist)
-            {
-                File.Create(path);
-                return new List<string>();
-            }
-            else
+            if (File.Exists(path))
                 return ReadAsText();
+            else
+                return new List<string>();
         }
 
         private List<string> ReadAsText()
