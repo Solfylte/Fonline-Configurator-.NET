@@ -12,6 +12,7 @@ namespace FOConfig
         private Dictionary<string, Dictionary<string, string>> сonfigurationFileSections = new Dictionary<string, Dictionary<string, string>>();
 
         private string currentHeader = "";
+        private List<string> headers = new List<string>();
 
         public FOnlineDataManager(IReader reader, IWriter writer, string path) 
                                 : base(reader, writer, path)
@@ -26,8 +27,9 @@ namespace FOConfig
                 if (IsHeader(line))
                 {
                     currentHeader = GetHeader(line);
+                    headers.Add(currentHeader);
 
-                    if(!IsSectionAlreadyAdded())
+                    if (!IsSectionAlreadyAdded())
                         AddConfigSection();
                 }
                 else if (IsSectionAlreadyAdded())
@@ -111,5 +113,7 @@ namespace FOConfig
         }
 
         private string GetFormatedConfigLine(KeyValuePair<string, string> line) => $"{line.Key} = {line.Value}";
+
+        public override List<string> GetHeaders() => headers;
     }
 }

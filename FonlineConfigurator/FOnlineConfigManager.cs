@@ -11,16 +11,13 @@ namespace FOConfig
     public class FOnlineConfigManager : BaseConfigManager
     {
         private const string DEFAULT_CONFIG_NAME = "DefaultValues.xml";
-        private const string DEFAULT_CONFIG_HEADER = "[Game Options]";
 
-        public FOnlineConfigManager(IDataManager dataManager) : base(dataManager) { }
+        public FOnlineConfigManager(IDataManager dataManager, string defaultConfigHeader) : base(dataManager, defaultConfigHeader) { }
 
         protected override Dictionary<string, string> GetConfigByDefault()
         {
             IDataManager defConfigDataManager = new FOnlineDataManager(new XMLFileReader(), null, DEFAULT_CONFIG_NAME);
-            return defConfigDataManager.GetConfigSection(DEFAULT_CONFIG_HEADER);
+            return defConfigDataManager.GetConfigSection(defaultConfigHeader);
         }
-
-        protected override string GetHeader() => DEFAULT_CONFIG_HEADER;
     }
 }

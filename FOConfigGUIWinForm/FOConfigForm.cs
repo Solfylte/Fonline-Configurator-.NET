@@ -19,18 +19,21 @@ namespace FOConfigGUIWinForm
         private const string FONLINE_APP_NAME = "FOnline.exe";
 
         private IConfigManager config;
+        private IConfigManager localizationConfig;
 
         private CombatMode combatMode;
         private IndicatorType indicatorType;
         private CombatMessageType combatMessageType;
         private ProxyType proxyType;
 
-        public FOConfigForm(IConfigManager configManager)
+        public FOConfigForm(IConfigManager config, IConfigManager localizationConfig)
         {
             InitializeComponent();
             SetComboboxDefaultValues();
 
-            config = configManager;
+            this.config = config;
+            this.localizationConfig = localizationConfig;
+
             GetValuesFromConfigData();
         }
 

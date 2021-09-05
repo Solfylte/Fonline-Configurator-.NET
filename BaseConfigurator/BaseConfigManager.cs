@@ -14,23 +14,31 @@ namespace Configurator
 
         protected Dictionary<Type, IConfigValueHandler> valueHandlers = new Dictionary<Type, IConfigValueHandler>();
 
-        public BaseConfigManager(IDataManager dataManager)
-        {
-            this.dataManager = dataManager;
-            this.сonfigSection = this.dataManager.GetConfigSection(GetHeader());
+        private string currentHeader;
+        protected string defaultConfigHeader;
 
+        public BaseConfigManager(IDataManager dataManager, string defaultConfigHeader)
+        {
             CreateValueHandlers();
+            this.dataManager = dataManager;
+            this.defaultConfigHeader = defaultConfigHeader;
+
+            SwitchToConfigSection(defaultConfigHeader);
+        }
+
+        public void SwitchToConfigSection(string header)
+        {
+            currentHeader = header;
+            this.сonfigSection = this.dataManager.GetConfigSection(currentHeader);
             AppendMissingPairs();
             Save();
         }
 
-        protected abstract string GetHeader();
-
         protected virtual void CreateValueHandlers()
         {
-            valueHandlers.Add(typeof(string), new StringHandler(сonfigSection));
-            valueHandlers.Add(typeof(int), new IntHandler(сonfigSection));
-            valueHandlers.Add(typeof(bool), new BoolHandler(сonfigSection));
+            valueHandlers.Add(typeof(string), new StringHandler());
+            valueHandlers.Add(typeof(int), new IntHandler());
+            valueHandlers.Add(typeof(bool), new BoolHandler());
         }
 
         private void AppendMissingPairs()
@@ -49,7 +57,7 @@ namespace Configurator
         public T GetValue<T>(string key)
         {
             IConfigValueHandler handler = valueHandlers[typeof(T)];
-            return (T)handler.GetConvertedValue(key);
+            return (T)handler.GetConvertedValue(key, сonfigSection);
         }
 
         public bool GetValueByDefault<T>(string key, out T value)
@@ -67,6 +75,6 @@ namespace Configurator
 
         private bool IsConfigFileContainsKey(string key) => this.сonfigSection.ContainsKey(key);
 
-        public void Save() => this.dataManager.SetConfigSection(this.сonfigSection, GetHeader());
+        public void Save() => this.dataManager.SetConfigSection(this.сonfigSection, currentHeader);
     }
 }

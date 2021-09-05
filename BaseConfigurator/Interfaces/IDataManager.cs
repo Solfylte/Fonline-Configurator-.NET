@@ -17,5 +17,7 @@ namespace Configurator
         /// <param name="header">Used if config file divided by separate section with headers, like [iHeader].
         /// Empty if uses just one section for all config file.</param>
         void SetConfigSection(Dictionary<string, string> configSection, string header = "");
+
+        List<string> GetHeaders();
     }
 }

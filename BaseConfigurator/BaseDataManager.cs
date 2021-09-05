@@ -23,6 +23,9 @@ namespace Configurator
         }
 
         public abstract Dictionary<string, string> GetConfigSection(string header = "");
+
+        public abstract List<string> GetHeaders();
+
         public abstract void SetConfigSection(Dictionary<string, string> configSection, string header = "");
     }
 }
