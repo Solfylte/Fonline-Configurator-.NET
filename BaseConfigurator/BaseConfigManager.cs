@@ -60,10 +60,7 @@ namespace Configurator
             return (T)handler.GetConvertedValue(key, сonfigSection);
         }
 
-        public bool GetValueByDefault<T>(string key, out T value)
-        {
-            throw new NotImplementedException();
-        }
+        public string[] GetHeaders() => dataManager.GetHeaders();
 
         public void SetValue<T>(string key, T value)
         {

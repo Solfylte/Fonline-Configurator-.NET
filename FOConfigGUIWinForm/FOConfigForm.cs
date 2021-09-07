@@ -28,18 +28,17 @@ namespace FOConfigGUIWinForm
 
         public FOConfigForm(IConfigManager config, IConfigManager localizationConfig)
         {
-            InitializeComponent();
-            SetComboboxDefaultValues();
-
             this.config = config;
             this.localizationConfig = localizationConfig;
 
+            InitializeComponent();
+            SetComboboxValues();
             GetValuesFromConfigData();
         }
 
-        private void SetComboboxDefaultValues()
+        private void SetComboboxValues()
         {
-            comboBoxLanguage.SelectedIndex = 0;
+            UpdateLocalizationCombobox();
             comboBoxMultiSampling.SelectedIndex = 0;
             comboBoxRemoteHost.SelectedIndex = 0;
             comboBoxScreenHeight.SelectedIndex = 0;
@@ -269,9 +268,17 @@ namespace FOConfigGUIWinForm
             comboBoxScreenWidth.SelectedIndex = comboBoxScreenHeight.SelectedIndex;
         }
 
+        #region localization
+        private void UpdateLocalizationCombobox()
+        {
+            comboBoxLanguage.Items.AddRange(localizationConfig.GetHeaders());
+            comboBoxLanguage.SelectedIndex = 0;
+        }
+
         private void comboBoxLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
             // TO DO: change languages
         }
+        #endregion
     }
 }

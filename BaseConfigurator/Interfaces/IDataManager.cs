@@ -18,6 +18,6 @@ namespace Configurator
         /// Empty if uses just one section for all config file.</param>
         void SetConfigSection(Dictionary<string, string> configSection, string header = "");
 
-        List<string> GetHeaders();
+        string[] GetHeaders();
     }
 }

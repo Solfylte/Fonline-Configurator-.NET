@@ -27,7 +27,7 @@ namespace FOConfig
                 if (IsHeader(line))
                 {
                     currentHeader = GetHeader(line);
-                    headers.Add(currentHeader);
+                    headers.Add(currentHeader.Trim(new char[] { '[', ']'}));
 
                     if (!IsSectionAlreadyAdded())
                         AddConfigSection();
@@ -39,7 +39,7 @@ namespace FOConfig
             }
         }
 
-        private bool IsHeader(string line) => line.Contains("[") && line.Contains("]");
+        protected bool IsHeader(string line) => line.Contains("[") && line.Contains("]");
 
         private string GetHeader(string line)
         {
@@ -51,6 +51,8 @@ namespace FOConfig
 
             return line.Substring(startIndex);
         }
+
+        public override string[] GetHeaders() => headers.ToArray();
 
         private void AddConfigSection()
         {
@@ -113,7 +115,5 @@ namespace FOConfig
         }
 
         private string GetFormatedConfigLine(KeyValuePair<string, string> line) => $"{line.Key} = {line.Value}";
-
-        public override List<string> GetHeaders() => headers;
     }
 }

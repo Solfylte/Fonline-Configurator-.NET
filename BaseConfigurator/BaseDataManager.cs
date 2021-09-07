@@ -13,6 +13,8 @@ namespace Configurator
         protected IReader reader;
         protected string path;
 
+        private List<string> headers;
+
         public BaseDataManager(IReader reader, IWriter writer, string path)
         {
             this.reader = reader;
@@ -24,8 +26,8 @@ namespace Configurator
 
         public abstract Dictionary<string, string> GetConfigSection(string header = "");
 
-        public abstract List<string> GetHeaders();
-
         public abstract void SetConfigSection(Dictionary<string, string> configSection, string header = "");
+
+        public abstract string[] GetHeaders();
     }
 }
