@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FOnlineDefaultConfig>
+	<Header value = "[Game Options]"/>
+	<Language value="engl"/>
+	<WinNotify value="true"/>
+	<SoundNotify value="false"/>
+	<InvertMessBox value="false"/>
+	<Logging value="true"/>
+	<LoggingTime value="false"/>
+	<FixedFPS value="100"/>
+	<ScrollDelay value="30"/>
+	<ScrollStep value="30"/>
+	<TextDelay value="3000"/>
+	<AlwaysRun value="true"/>
+	<RemoteHost value="localhost"/>
+	<RemotePort value="4000"/>
+	<ProxyType value="0"/>
+	<ProxyHost value=""/>
+	<ProxyPort value="0"/>
+	<ProxyUser value=""/>
+	<ProxyPass value=""/>
+	<ScreenWidth value="1024"/>
+	<ScreenHeight value="768"/>
+	<Light value="20"/>
+	<FlushValue value="250"/>
+	<BaseTexture value="512"/>
+	<DoubleClickTime value="1"/>
+	<FullScreen value="true"/>
+	<VSync value="false"/>
+	<AlwaysOnTop value="false"/>
+	<Animation3dSmoothTime value="0"/>
+	<Animation3dFPS value="0"/>
+	<MusicVolume value="73"/>
+	<SoundVolume value="77"/>
+	<DefaultCombatMode value="0"/>
+	<IndicatorType value="2"/>
+	<CombatMessagesType value="1"/>
+	<DamageHitDelay value="1000"/>
+	<MultiSampling value="0"/>
+	<FonlineDataPath value=".\data"/>
+	<WindowName value="FOnline"/>
+</FOnlineDefaultConfig>
