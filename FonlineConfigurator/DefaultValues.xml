@@ -37,6 +37,6 @@
 	<CombatMessagesType value="1"/>
 	<DamageHitDelay value="1000"/>
 	<MultiSampling value="0"/>
-	<FonlineDataPath value=".\\data"/>
+	<FonlineDataPath value=".\data"/>
 	<WindowName value="FOnline"/>
 </FOnlineDefaultConfig>

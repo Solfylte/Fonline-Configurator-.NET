@@ -24,12 +24,15 @@ namespace Configurator
             List<string> lines = new List<string>();
 
             XmlTextReader reader = new XmlTextReader(path);
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(reader);
-            XmlNode rootNode = xmlDoc.DocumentElement;
+            if (reader.AttributeCount > 0)
+            {
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(reader);
+                XmlNode rootNode = xmlDoc.DocumentElement;
 
-            foreach (XmlNode childNode in rootNode.ChildNodes)
-                lines.Add($"{childNode.Name}={childNode.Attributes["value"].Value}");
+                foreach (XmlNode childNode in rootNode.ChildNodes)
+                    lines.Add($"{childNode.Name}={childNode.Attributes["value"].Value}");
+            }
 
             return lines;
         }

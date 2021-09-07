@@ -257,8 +257,7 @@ namespace FOConfigGUIWinForm
             // 
             this.comboBoxLanguage.FormattingEnabled = true;
             this.comboBoxLanguage.Items.AddRange(new object[] {
-            "English",
-            "Русский"});
+            "engl"});
             this.comboBoxLanguage.Location = new System.Drawing.Point(6, 19);
             this.comboBoxLanguage.Name = "comboBoxLanguage";
             this.comboBoxLanguage.Size = new System.Drawing.Size(168, 21);
