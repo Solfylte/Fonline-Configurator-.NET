@@ -216,31 +216,30 @@ namespace FOConfigGUIWinForm
             this.checkBoxInvertMessBox.AutoSize = true;
             this.checkBoxInvertMessBox.Location = new System.Drawing.Point(6, 92);
             this.checkBoxInvertMessBox.Name = "checkBoxInvertMessBox";
-            this.checkBoxInvertMessBox.Size = new System.Drawing.Size(81, 30);
+            this.checkBoxInvertMessBox.Size = new System.Drawing.Size(131, 17);
             this.checkBoxInvertMessBox.TabIndex = 2;
-            this.checkBoxInvertMessBox.Text = "Invert text\r\nin messbox.";
+            this.checkBoxInvertMessBox.Text = "Invert text in messbox.";
             this.checkBoxInvertMessBox.UseVisualStyleBackColor = true;
             // 
             // checkBoxSoundNotify
             // 
-            this.checkBoxSoundNotify.AutoSize = true;
             this.checkBoxSoundNotify.Location = new System.Drawing.Point(6, 56);
             this.checkBoxSoundNotify.Name = "checkBoxSoundNotify";
             this.checkBoxSoundNotify.Size = new System.Drawing.Size(105, 30);
             this.checkBoxSoundNotify.TabIndex = 1;
-            this.checkBoxSoundNotify.Text = "Beep sound on\r\nnot active game.";
+            this.checkBoxSoundNotify.Text = "Beep sound on not active game.";
             this.checkBoxSoundNotify.UseVisualStyleBackColor = true;
             // 
             // checkBoxWinNotify
             // 
-            this.checkBoxWinNotify.AutoSize = true;
             this.checkBoxWinNotify.Checked = true;
             this.checkBoxWinNotify.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxWinNotify.Location = new System.Drawing.Point(6, 20);
             this.checkBoxWinNotify.Name = "checkBoxWinNotify";
+            this.checkBoxWinNotify.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.checkBoxWinNotify.Size = new System.Drawing.Size(105, 30);
             this.checkBoxWinNotify.TabIndex = 0;
-            this.checkBoxWinNotify.Text = "Flush window on\r\nnot active game.";
+            this.checkBoxWinNotify.Text = "Flush window on not active game.";
             this.checkBoxWinNotify.UseVisualStyleBackColor = true;
             // 
             // groupBoxLanguage
@@ -857,12 +856,11 @@ namespace FOConfigGUIWinForm
             // 
             // labelFixedFPS
             // 
-            this.labelFixedFPS.AutoSize = true;
             this.labelFixedFPS.Location = new System.Drawing.Point(123, 184);
             this.labelFixedFPS.Name = "labelFixedFPS";
             this.labelFixedFPS.Size = new System.Drawing.Size(32, 26);
             this.labelFixedFPS.TabIndex = 14;
-            this.labelFixedFPS.Text = "Fixed\r\nFPS";
+            this.labelFixedFPS.Text = "Fixed FPS";
             // 
             // checkBoxAlwaysOnTop
             // 
@@ -898,12 +896,11 @@ namespace FOConfigGUIWinForm
             // 
             // labelAnimation3dSmoothTime
             // 
-            this.labelAnimation3dSmoothTime.AutoSize = true;
             this.labelAnimation3dSmoothTime.Location = new System.Drawing.Point(16, 152);
             this.labelAnimation3dSmoothTime.Name = "labelAnimation3dSmoothTime";
             this.labelAnimation3dSmoothTime.Size = new System.Drawing.Size(56, 26);
             this.labelAnimation3dSmoothTime.TabIndex = 10;
-            this.labelAnimation3dSmoothTime.Text = "3d smooth\r\ntransition";
+            this.labelAnimation3dSmoothTime.Text = "3d smooth transition";
             // 
             // numericUpDownAnimation3dSmoothTime
             // 

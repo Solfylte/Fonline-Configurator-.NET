@@ -8,7 +8,7 @@ namespace Configurator
 {
     public abstract class BaseConfigManager: IConfigManager
     {
-        private IDataManager dataManager;
+        protected IDataManager dataManager;
 
         private Dictionary<string, string> сonfigSection;
 
@@ -22,16 +22,13 @@ namespace Configurator
             CreateValueHandlers();
             this.dataManager = dataManager;
             this.defaultConfigHeader = defaultConfigHeader;
-
-            SwitchToConfigSection(defaultConfigHeader);
         }
 
-        public void SwitchToConfigSection(string header)
+        public virtual void SwitchToConfigSection(string header)
         {
             currentHeader = header;
             this.сonfigSection = this.dataManager.GetConfigSection(currentHeader);
             AppendMissingPairs();
-            Save();
         }
 
         protected virtual void CreateValueHandlers()
@@ -57,6 +54,7 @@ namespace Configurator
         public T GetValue<T>(string key)
         {
             IConfigValueHandler handler = valueHandlers[typeof(T)];
+            T result = (T)handler.GetConvertedValue(key, сonfigSection);
             return (T)handler.GetConvertedValue(key, сonfigSection);
         }
 

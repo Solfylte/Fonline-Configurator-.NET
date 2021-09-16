@@ -13,8 +13,6 @@ namespace Configurator
         protected IReader reader;
         protected string path;
 
-        private List<string> headers;
-
         public BaseDataManager(IReader reader, IWriter writer, string path)
         {
             this.reader = reader;

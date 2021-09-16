@@ -20,15 +20,18 @@ namespace FOConfigGUIWinForm
         [STAThread]
         static void Main()
         {
-            IDataManager dataManager = new FOnlineDataManager(new TextFileReader(), new TextFileWriter(), CONFIG_NAME);
-            IConfigManager config = new FOnlineConfigManager(dataManager, "[Game Options]");
-
-            IDataManager localizationData = new FOnlineDataManager(new TextFileReader(), new TextFileWriter(), LOCALIZATION_CONFIG_NAME);
-            IConfigManager localizationConfig = new FOnlineConfigManager(localizationData, "[engl]");
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FOConfigForm(config, localizationConfig));
+
+            IDataManager configData = new FOnlineDataManager(new TextFileReader(), new TextFileWriter(), CONFIG_NAME);
+            IConfigManager config = new FOnlineConfigManager(configData, "[Game Options]");
+
+            FOConfigForm form = new FOConfigForm(config);
+
+            IDataManager localizationData = new FOnlineDataManager(new TextFileReader(), new TextFileWriter(), LOCALIZATION_CONFIG_NAME);
+            IConfigManager localization = new Localization(localizationData, "[engl]", form);
+
+            Application.Run(form);
         }
     }
 }

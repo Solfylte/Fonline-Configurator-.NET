@@ -19,17 +19,17 @@ namespace FOConfigGUIWinForm
         private const string FONLINE_APP_NAME = "FOnline.exe";
 
         private IConfigManager config;
-        private IConfigManager localizationConfig;
 
         private CombatMode combatMode;
         private IndicatorType indicatorType;
         private CombatMessageType combatMessageType;
         private ProxyType proxyType;
 
-        public FOConfigForm(IConfigManager config, IConfigManager localizationConfig)
+        private Dictionary<string, string> localizationHeaders = new Dictionary<string, string>();
+
+        public FOConfigForm(IConfigManager config)
         {
             this.config = config;
-            this.localizationConfig = localizationConfig;
 
             InitializeComponent();
             SetComboboxValues();
@@ -38,7 +38,7 @@ namespace FOConfigGUIWinForm
 
         private void SetComboboxValues()
         {
-            UpdateLocalizationCombobox();
+            SetLocalizationCombobox();
             comboBoxMultiSampling.SelectedIndex = 0;
             comboBoxRemoteHost.SelectedIndex = 0;
             comboBoxScreenHeight.SelectedIndex = 0;
@@ -269,10 +269,21 @@ namespace FOConfigGUIWinForm
         }
 
         #region localization
-        private void UpdateLocalizationCombobox()
+        private void SetLocalizationCombobox()
         {
-            comboBoxLanguage.Items.AddRange(localizationConfig.GetHeaders());
-            comboBoxLanguage.SelectedIndex = 0;
+            /*string[] headers = localizationConfig.GetHeaders();
+
+            string languageName = localizationConfig.GetValue<string>("languageName");*/
+
+          /*  foreach (var header in headers)
+            {
+                localizationConfig.SwitchToConfigSection(header);
+                string languageName = localizationConfig.GetValue<string>("languageName");
+                //localizationHeaders.Add(languageName, header);
+            }       */         
+
+            //comboBoxLanguage.Items.AddRange(localizationHeaders.Keys.ToArray<string>());
+            //comboBoxLanguage.SelectedIndex = 0;
         }
 
         private void comboBoxLanguage_SelectedIndexChanged(object sender, EventArgs e)

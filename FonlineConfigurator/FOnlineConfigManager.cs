@@ -12,7 +12,11 @@ namespace FOConfig
     {
         private const string DEFAULT_CONFIG_NAME = "DefaultValues.xml";
 
-        public FOnlineConfigManager(IDataManager dataManager, string defaultConfigHeader) : base(dataManager, defaultConfigHeader) { }
+        public FOnlineConfigManager(IDataManager dataManager, string defaultConfigHeader) : base(dataManager, defaultConfigHeader) 
+        {
+            SwitchToConfigSection(defaultConfigHeader);
+            Save();
+        }
 
         protected override Dictionary<string, string> GetConfigByDefault()
         {
