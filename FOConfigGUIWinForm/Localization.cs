@@ -34,17 +34,17 @@ namespace FOConfigGUIWinForm
                     && control.GetType() != typeof(NumericUpDown) && control.GetType() != typeof(ComboBox);
         }
 
-        protected override Dictionary<string, string> GetConfigByDefault()
+        private Dictionary<string, string> GetDefaultLocalization()
         {          
-            Dictionary<string, string> configByDefault = new Dictionary<string, string>();
+            Dictionary<string, string> defaultLocalization = new Dictionary<string, string>();
 
             for (int i = 0; i < controls.Length; i++)
             {
-                if(!configByDefault.ContainsKey(controls[i].Name))
-                    configByDefault.Add(controls[i].Name, controls[i].Text);
+                if(!defaultLocalization.ContainsKey(controls[i].Name))
+                    defaultLocalization.Add(controls[i].Name, controls[i].Text);
             }
 
-            return configByDefault;
+            return defaultLocalization;
         }
     }
 }

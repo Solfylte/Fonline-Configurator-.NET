@@ -22,9 +22,9 @@ namespace Configurator
             fileLines = reader.Read(path);
         }
 
-        public abstract Dictionary<string, string> GetConfigSection(string header = "");
+        public abstract Dictionary<string, string> GetConfigSection(string header);
 
-        public abstract void SetConfigSection(Dictionary<string, string> configSection, string header = "");
+        public abstract void SetConfigSection(Dictionary<string, string> configSection, string header);
 
         public abstract string[] GetHeaders();
     }

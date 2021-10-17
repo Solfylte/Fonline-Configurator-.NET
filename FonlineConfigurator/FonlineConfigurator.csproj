@@ -50,11 +50,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DefaultValues.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\BaseConfigurator\BaseConfigurator.csproj">
       <Project>{3e304cd0-08af-4095-94bf-8e283d2c5bb4}</Project>
       <Name>BaseConfigurator</Name>

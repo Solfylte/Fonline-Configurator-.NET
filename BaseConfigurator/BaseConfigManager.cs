@@ -28,7 +28,6 @@ namespace Configurator
         {
             currentHeader = header;
             this.сonfigSection = this.dataManager.GetConfigSection(currentHeader);
-            AppendMissingPairs();
         }
 
         protected virtual void CreateValueHandlers()
@@ -37,19 +36,6 @@ namespace Configurator
             valueHandlers.Add(typeof(int), new IntHandler());
             valueHandlers.Add(typeof(bool), new BoolHandler());
         }
-
-        private void AppendMissingPairs()
-        {
-            Dictionary<string, string> defaultConfig = new Dictionary<string, string>(GetConfigByDefault());
-            int clenght = GetConfigByDefault().Values.Count;
-            foreach (string key in defaultConfig.Keys)
-            {
-                if(!IsConfigFileContainsKey(key))
-                    this.сonfigSection.Add(key, defaultConfig[key]);
-            }
-        }
-
-        protected abstract Dictionary<string, string> GetConfigByDefault();
 
         public T GetValue<T>(string key)
         {

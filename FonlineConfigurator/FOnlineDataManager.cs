@@ -74,19 +74,9 @@ namespace FOConfig
 
         public override Dictionary<string, string> GetConfigSection(string header)
         {
-            bool isHaveSection = сonfigurationFileSections.ContainsKey(header);
-
-            if (сonfigurationFileSections.Count > 0)
-            {
-                string zeroElement = сonfigurationFileSections.Keys.ElementAt<string>(0);
-                bool zeroIsHeader = zeroElement.Equals(header, StringComparison.OrdinalIgnoreCase);
-                string test = "[Game Options]";
-                bool t1 = test.Equals(header);
-                bool t2 = test.Equals(zeroElement);
-            }
             if (сonfigurationFileSections.ContainsKey(header))
                 return сonfigurationFileSections[header];
-            else return new Dictionary<string, string>();
+            else return new Dictionary<string, string>();   
         }
 
         public override void SetConfigSection(Dictionary<string, string> configSection, string header)
