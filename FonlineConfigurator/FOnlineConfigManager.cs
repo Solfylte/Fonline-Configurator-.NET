@@ -12,8 +12,7 @@ namespace FOConfig
     {
         public FOnlineConfigManager(IDataManager dataManager, string defaultConfigHeader) : base(dataManager, defaultConfigHeader) 
         {
-            SwitchToConfigSection(defaultConfigHeader);
-            Save();
+            
         }
     }
 }

@@ -2,6 +2,10 @@
 
 namespace Configurator
 {
+    /// <summary>
+    /// Responsible for IO the configuration file and interpreting data as config sections.
+    /// *Doesn't implement manipulating concrete configuration fields (see IConfigManager for this).
+    /// </summary>
     public interface IDataManager
     {
         /// <summary>

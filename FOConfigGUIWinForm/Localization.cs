@@ -15,8 +15,6 @@ namespace FOConfigGUIWinForm
         public Localization(IDataManager dataManager, string defaultConfigHeader, FOConfigForm form) : base(dataManager, defaultConfigHeader)
         {
             controls = GetControls(form).ToArray();
-            SwitchToConfigSection(defaultConfigHeader);
-            Save();
         }
 
         public IEnumerable<Control> GetControls(Control control)
@@ -25,10 +23,10 @@ namespace FOConfigGUIWinForm
 
             return controls.SelectMany(ctrl => GetControls(ctrl))
                                       .Concat(controls)
-                                      .Where(c => CanBeTranslated(c));
+                                      .Where(c => ShouldBeTranslated(c));
         }
 
-        private bool CanBeTranslated(Control control)
+        private bool ShouldBeTranslated(Control control)
         {
             return control.Text != "" && control.Name != ""
                     && control.GetType() != typeof(NumericUpDown) && control.GetType() != typeof(ComboBox);

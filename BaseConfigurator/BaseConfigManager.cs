@@ -8,11 +8,11 @@ namespace Configurator
 {
     public abstract class BaseConfigManager: IConfigManager
     {
-        protected IDataManager dataManager;
+        private IDataManager dataManager;
 
         private Dictionary<string, string> сonfigSection;
 
-        protected Dictionary<Type, IConfigValueHandler> valueHandlers = new Dictionary<Type, IConfigValueHandler>();
+        private Dictionary<Type, IConfigValueHandler> valueHandlers = new Dictionary<Type, IConfigValueHandler>();
 
         private string currentHeader;
         protected string defaultConfigHeader;
@@ -22,6 +22,7 @@ namespace Configurator
             CreateValueHandlers();
             this.dataManager = dataManager;
             this.defaultConfigHeader = defaultConfigHeader;
+            SwitchToConfigSection(defaultConfigHeader);
         }
 
         public virtual void SwitchToConfigSection(string header)

@@ -2,6 +2,10 @@
 
 namespace Configurator
 {
+    /// <summary>
+    /// Responsible for manipulating configuration fields and switching between config sections.
+    /// *Doesn't implement IO or interpreting config files content (See IDataManager for this).
+    /// </summary>
     public interface IConfigManager
     {
         string[] GetHeaders();

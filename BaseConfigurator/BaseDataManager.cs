@@ -8,10 +8,12 @@ namespace Configurator
     public abstract class BaseDataManager: IDataManager
     {
         protected List<string> fileLines = new List<string>();
+        protected abstract Dictionary<string, Dictionary<string, string>> ConfigurationFileSections { get; set; }
+        protected abstract List<string> Headers { get; set; }
 
-        protected IWriter writer;
-        protected IReader reader;
-        protected string path;
+        private IWriter writer;
+        private IReader reader;
+        private string path;
 
         public BaseDataManager(IReader reader, IWriter writer, string path)
         {
@@ -22,10 +24,41 @@ namespace Configurator
             fileLines = reader.Read(path);
         }
 
-        public abstract Dictionary<string, string> GetConfigSection(string header);
+        public string[] GetHeaders() => Headers.ToArray();
 
-        public abstract void SetConfigSection(Dictionary<string, string> configSection, string header);
+        public Dictionary<string, string> GetConfigSection(string header)
+        {
+            if (ConfigurationFileSections.ContainsKey(header))
+                return ConfigurationFileSections[header];
+            else throw new Exception($"You tried get config section with header '{header}', " +
+                                        $"but this header not exist in config file.");
+        }
 
-        public abstract string[] GetHeaders();
+        public void SetConfigSection(Dictionary<string, string> configSection, string header)
+        {
+            if (!ConfigurationFileSections.ContainsKey(header))
+                ConfigurationFileSections.Add(header, new Dictionary<string, string>());
+
+            ConfigurationFileSections[header] = configSection;
+
+            WriteToFile();
+        }
+
+        private void WriteToFile()
+        {
+            fileLines.Clear();
+            foreach (var configSection in ConfigurationFileSections)
+            {
+                fileLines.Add(configSection.Key);
+                foreach (var line in configSection.Value)
+                    fileLines.Add(GetFormatedConfigLine(line));
+
+                fileLines.Add("");
+            }
+
+            writer.Write(fileLines, path);
+        }
+
+        private string GetFormatedConfigLine(KeyValuePair<string, string> line) => $"{line.Key} = {line.Value}";
     }
 }
