@@ -349,7 +349,7 @@ namespace FOConfigGUIWinForm
             this.numericUpDownScrollStep.Size = new System.Drawing.Size(80, 20);
             this.numericUpDownScrollStep.TabIndex = 4;
             this.numericUpDownScrollStep.Value = new decimal(new int[] {
-            30,
+            12,
             0,
             0,
             0});
@@ -371,7 +371,7 @@ namespace FOConfigGUIWinForm
             this.numericUpDownScrollDelay.Size = new System.Drawing.Size(80, 20);
             this.numericUpDownScrollDelay.TabIndex = 3;
             this.numericUpDownScrollDelay.Value = new decimal(new int[] {
-            30,
+            10,
             0,
             0,
             0});
@@ -444,11 +444,6 @@ namespace FOConfigGUIWinForm
             this.numericUpDownDamageHitDelay.Name = "numericUpDownDamageHitDelay";
             this.numericUpDownDamageHitDelay.Size = new System.Drawing.Size(80, 20);
             this.numericUpDownDamageHitDelay.TabIndex = 7;
-            this.numericUpDownDamageHitDelay.Value = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
             // 
             // labelDamageHitDelay
             // 
@@ -473,22 +468,22 @@ namespace FOConfigGUIWinForm
             // radioButtonMessagesBrief
             // 
             this.radioButtonMessagesBrief.AutoSize = true;
-            this.radioButtonMessagesBrief.Checked = true;
             this.radioButtonMessagesBrief.Location = new System.Drawing.Point(93, 19);
             this.radioButtonMessagesBrief.Name = "radioButtonMessagesBrief";
             this.radioButtonMessagesBrief.Size = new System.Drawing.Size(46, 17);
             this.radioButtonMessagesBrief.TabIndex = 1;
-            this.radioButtonMessagesBrief.TabStop = true;
             this.radioButtonMessagesBrief.Text = "Brief";
             this.radioButtonMessagesBrief.UseVisualStyleBackColor = true;
             // 
             // radioButtonMessagesVerbose
             // 
             this.radioButtonMessagesVerbose.AutoSize = true;
+            this.radioButtonMessagesVerbose.Checked = true;
             this.radioButtonMessagesVerbose.Location = new System.Drawing.Point(6, 19);
             this.radioButtonMessagesVerbose.Name = "radioButtonMessagesVerbose";
             this.radioButtonMessagesVerbose.Size = new System.Drawing.Size(64, 17);
             this.radioButtonMessagesVerbose.TabIndex = 0;
+            this.radioButtonMessagesVerbose.TabStop = true;
             this.radioButtonMessagesVerbose.Text = "Verbose";
             this.radioButtonMessagesVerbose.UseVisualStyleBackColor = true;
             // 
@@ -517,22 +512,22 @@ namespace FOConfigGUIWinForm
             // radioButtonIndicatorLines
             // 
             this.radioButtonIndicatorLines.AutoSize = true;
+            this.radioButtonIndicatorLines.Checked = true;
             this.radioButtonIndicatorLines.Location = new System.Drawing.Point(6, 42);
             this.radioButtonIndicatorLines.Name = "radioButtonIndicatorLines";
             this.radioButtonIndicatorLines.Size = new System.Drawing.Size(50, 17);
             this.radioButtonIndicatorLines.TabIndex = 1;
+            this.radioButtonIndicatorLines.TabStop = true;
             this.radioButtonIndicatorLines.Text = "Lines";
             this.radioButtonIndicatorLines.UseVisualStyleBackColor = true;
             // 
             // radioButtonIndicatorBoth
             // 
             this.radioButtonIndicatorBoth.AutoSize = true;
-            this.radioButtonIndicatorBoth.Checked = true;
             this.radioButtonIndicatorBoth.Location = new System.Drawing.Point(6, 19);
             this.radioButtonIndicatorBoth.Name = "radioButtonIndicatorBoth";
             this.radioButtonIndicatorBoth.Size = new System.Drawing.Size(81, 17);
             this.radioButtonIndicatorBoth.TabIndex = 0;
-            this.radioButtonIndicatorBoth.TabStop = true;
             this.radioButtonIndicatorBoth.Text = "Both modes";
             this.radioButtonIndicatorBoth.UseVisualStyleBackColor = true;
             // 
@@ -885,8 +880,6 @@ namespace FOConfigGUIWinForm
             // checkBoxFullScreen
             // 
             this.checkBoxFullScreen.AutoSize = true;
-            this.checkBoxFullScreen.Checked = true;
-            this.checkBoxFullScreen.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxFullScreen.Location = new System.Drawing.Point(128, 105);
             this.checkBoxFullScreen.Name = "checkBoxFullScreen";
             this.checkBoxFullScreen.Size = new System.Drawing.Size(74, 17);
@@ -913,6 +906,11 @@ namespace FOConfigGUIWinForm
             this.numericUpDownAnimation3dSmoothTime.Name = "numericUpDownAnimation3dSmoothTime";
             this.numericUpDownAnimation3dSmoothTime.Size = new System.Drawing.Size(75, 20);
             this.numericUpDownAnimation3dSmoothTime.TabIndex = 9;
+            this.numericUpDownAnimation3dSmoothTime.Value = new decimal(new int[] {
+            250,
+            0,
+            0,
+            0});
             // 
             // numericUpDownAnimation3dFPS
             // 
@@ -1011,7 +1009,7 @@ namespace FOConfigGUIWinForm
             this.numericUpDownBaseTexture.Size = new System.Drawing.Size(75, 20);
             this.numericUpDownBaseTexture.TabIndex = 3;
             this.numericUpDownBaseTexture.Value = new decimal(new int[] {
-            512,
+            1024,
             0,
             0,
             0});
@@ -1033,7 +1031,7 @@ namespace FOConfigGUIWinForm
             this.numericUpDownFlushValue.Size = new System.Drawing.Size(75, 20);
             this.numericUpDownFlushValue.TabIndex = 2;
             this.numericUpDownFlushValue.Value = new decimal(new int[] {
-            250,
+            100,
             0,
             0,
             0});

@@ -38,11 +38,19 @@ namespace Configurator
             valueHandlers.Add(typeof(bool), new BoolHandler());
         }
 
-        public T GetValue<T>(string key)
+        public bool GetValue<T>(string key, out T value)
         {
-            IConfigValueHandler handler = valueHandlers[typeof(T)];
-            T result = (T)handler.GetConvertedValue(key, сonfigSection);
-            return (T)handler.GetConvertedValue(key, сonfigSection);
+            value = default;
+            if (сonfigSection.ContainsKey(key))
+            {
+                IConfigValueHandler handler = valueHandlers[typeof(T)];
+                if (handler.GetConvertedValue(сonfigSection[key], out object result))
+                {
+                    value = (T)result;
+                    return true;
+                }
+            }
+            return false;
         }
 
         public string[] GetHeaders() => dataManager.GetHeaders();

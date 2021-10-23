@@ -9,7 +9,7 @@ namespace Configurator
     public interface IDataManager
     {
         /// <summary>
-        /// Returns a dictionary with strings key-value configuration pairs.
+        /// Returns a dictionary with strings key-value configuration pairs. Crete empty section if header not exist.
         /// </summary>
         /// <param name="header"> Used if config file divided by separate section with headers, like [iHeader]</param>
         Dictionary<string, string> GetConfigSection(string header = "");

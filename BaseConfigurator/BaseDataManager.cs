@@ -28,10 +28,10 @@ namespace Configurator
 
         public Dictionary<string, string> GetConfigSection(string header)
         {
-            if (ConfigurationFileSections.ContainsKey(header))
-                return ConfigurationFileSections[header];
-            else throw new Exception($"You tried get config section with header '{header}', " +
-                                        $"but this header not exist in config file.");
+            if (!ConfigurationFileSections.ContainsKey(header))
+                ConfigurationFileSections.Add(header, new Dictionary<string, string>());
+
+            return ConfigurationFileSections[header];
         }
 
         public void SetConfigSection(Dictionary<string, string> configSection, string header)

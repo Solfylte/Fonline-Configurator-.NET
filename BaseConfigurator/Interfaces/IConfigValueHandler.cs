@@ -4,6 +4,6 @@ namespace Configurator
 {
     public interface IConfigValueHandler
     {
-        object GetConvertedValue(string key, Dictionary<string, string> configSection);
+        bool GetConvertedValue(string value, out object result);
     }
 }

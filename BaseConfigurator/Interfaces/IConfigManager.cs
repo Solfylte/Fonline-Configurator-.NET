@@ -10,7 +10,7 @@ namespace Configurator
     {
         string[] GetHeaders();
         void SwitchToConfigSection(string header);
-        T GetValue<T>(string key);
+        bool GetValue<T>(string key, out T value);
         void SetValue<T>(string key, T value);        
         void Save();
     }
