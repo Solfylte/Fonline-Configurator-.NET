@@ -298,9 +298,9 @@ namespace FOConfigGUIWinForm
 
         private void buttonPlay_Click(object sender, EventArgs e)
         {
+            SetValuesToConfigData();
             if (File.Exists(FONLINE_APP_NAME))
             {
-                SetValuesToConfigData();
                 Process gameProcess = Process.Start(FONLINE_APP_NAME);
                 Application.Exit();
             }
