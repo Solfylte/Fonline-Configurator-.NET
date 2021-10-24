@@ -59,7 +59,7 @@ namespace Configurator
         {
             if (IsConfigFileContainsKey(key))
                 this.сonfigSection[key] = value.ToString();
-            else
+            else if(value!=null)
                 this.сonfigSection.Add(key, value.ToString());
         }
 

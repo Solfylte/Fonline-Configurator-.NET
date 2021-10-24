@@ -178,6 +178,9 @@ namespace FOConfigGUIWinForm
 
         private void UpdateCombobox(string key, ComboBox comboBox)
         {
+            if(comboBox.Items.Count>0)
+                comboBox.SelectedIndex = 0;
+
             if (config.GetValue<string>(key, out string value))
                 comboBox.SelectedValue = value;
             else

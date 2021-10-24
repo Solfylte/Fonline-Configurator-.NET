@@ -255,6 +255,8 @@ namespace FOConfigGUIWinForm
             // comboBoxLanguage
             // 
             this.comboBoxLanguage.FormattingEnabled = true;
+            this.comboBoxLanguage.Items.AddRange(new object[] {
+            "English"});
             this.comboBoxLanguage.Location = new System.Drawing.Point(6, 19);
             this.comboBoxLanguage.Name = "comboBoxLanguage";
             this.comboBoxLanguage.Size = new System.Drawing.Size(168, 21);
@@ -1086,9 +1088,9 @@ namespace FOConfigGUIWinForm
             "1080"});
             this.comboBoxScreenHeight.FormattingEnabled = true;
             this.comboBoxScreenHeight.Items.AddRange(new object[] {
+            "768",
             "480",
             "600",
-            "768",
             "1024",
             "720",
             "768",
@@ -1113,9 +1115,9 @@ namespace FOConfigGUIWinForm
             "1920"});
             this.comboBoxScreenWidth.FormattingEnabled = true;
             this.comboBoxScreenWidth.Items.AddRange(new object[] {
+            "1024",
             "640",
             "800",
-            "1024",
             "1280",
             "1280",
             "1366",
