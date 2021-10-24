@@ -12,7 +12,7 @@ namespace Configurator
 
         private Dictionary<string, string> сonfigSection;
 
-        protected Dictionary<Type, IConfigValueHandler> valueHandlers = new Dictionary<Type, IConfigValueHandler>();
+        private Dictionary<Type, IConfigValueHandler> valueHandlers = new Dictionary<Type, IConfigValueHandler>();
 
         private string currentHeader;
         protected string defaultConfigHeader;
@@ -22,16 +22,13 @@ namespace Configurator
             CreateValueHandlers();
             this.dataManager = dataManager;
             this.defaultConfigHeader = defaultConfigHeader;
-
             SwitchToConfigSection(defaultConfigHeader);
         }
 
-        public void SwitchToConfigSection(string header)
+        public virtual void SwitchToConfigSection(string header)
         {
             currentHeader = header;
             this.сonfigSection = this.dataManager.GetConfigSection(currentHeader);
-            AppendMissingPairs();
-            Save();
         }
 
         protected virtual void CreateValueHandlers()
@@ -41,35 +38,28 @@ namespace Configurator
             valueHandlers.Add(typeof(bool), new BoolHandler());
         }
 
-        private void AppendMissingPairs()
+        public bool GetValue<T>(string key, out T value)
         {
-            Dictionary<string, string> defaultConfig = new Dictionary<string, string>(GetConfigByDefault());
-            int clenght = GetConfigByDefault().Values.Count;
-            foreach (string key in defaultConfig.Keys)
+            value = default;
+            if (сonfigSection.ContainsKey(key))
             {
-                if(!IsConfigFileContainsKey(key))
-                    this.сonfigSection.Add(key, defaultConfig[key]);
+                IConfigValueHandler handler = valueHandlers[typeof(T)];
+                if (handler.GetConvertedValue(сonfigSection[key], out object result))
+                {
+                    value = (T)result;
+                    return true;
+                }
             }
+            return false;
         }
 
-        protected abstract Dictionary<string, string> GetConfigByDefault();
-
-        public T GetValue<T>(string key)
-        {
-            IConfigValueHandler handler = valueHandlers[typeof(T)];
-            return (T)handler.GetConvertedValue(key, сonfigSection);
-        }
-
-        public bool GetValueByDefault<T>(string key, out T value)
-        {
-            throw new NotImplementedException();
-        }
+        public string[] GetHeaders() => dataManager.GetHeaders();
 
         public void SetValue<T>(string key, T value)
         {
             if (IsConfigFileContainsKey(key))
                 this.сonfigSection[key] = value.ToString();
-            else
+            else if(value!=null)
                 this.сonfigSection.Add(key, value.ToString());
         }
 

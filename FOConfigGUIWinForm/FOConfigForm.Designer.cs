@@ -216,31 +216,30 @@ namespace FOConfigGUIWinForm
             this.checkBoxInvertMessBox.AutoSize = true;
             this.checkBoxInvertMessBox.Location = new System.Drawing.Point(6, 92);
             this.checkBoxInvertMessBox.Name = "checkBoxInvertMessBox";
-            this.checkBoxInvertMessBox.Size = new System.Drawing.Size(81, 30);
+            this.checkBoxInvertMessBox.Size = new System.Drawing.Size(131, 17);
             this.checkBoxInvertMessBox.TabIndex = 2;
-            this.checkBoxInvertMessBox.Text = "Invert text\r\nin messbox.";
+            this.checkBoxInvertMessBox.Text = "Invert text in messbox.";
             this.checkBoxInvertMessBox.UseVisualStyleBackColor = true;
             // 
             // checkBoxSoundNotify
             // 
-            this.checkBoxSoundNotify.AutoSize = true;
             this.checkBoxSoundNotify.Location = new System.Drawing.Point(6, 56);
             this.checkBoxSoundNotify.Name = "checkBoxSoundNotify";
             this.checkBoxSoundNotify.Size = new System.Drawing.Size(105, 30);
             this.checkBoxSoundNotify.TabIndex = 1;
-            this.checkBoxSoundNotify.Text = "Beep sound on\r\nnot active game.";
+            this.checkBoxSoundNotify.Text = "Beep sound on not active game.";
             this.checkBoxSoundNotify.UseVisualStyleBackColor = true;
             // 
             // checkBoxWinNotify
             // 
-            this.checkBoxWinNotify.AutoSize = true;
             this.checkBoxWinNotify.Checked = true;
             this.checkBoxWinNotify.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxWinNotify.Location = new System.Drawing.Point(6, 20);
             this.checkBoxWinNotify.Name = "checkBoxWinNotify";
+            this.checkBoxWinNotify.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.checkBoxWinNotify.Size = new System.Drawing.Size(105, 30);
             this.checkBoxWinNotify.TabIndex = 0;
-            this.checkBoxWinNotify.Text = "Flush window on\r\nnot active game.";
+            this.checkBoxWinNotify.Text = "Flush window on not active game.";
             this.checkBoxWinNotify.UseVisualStyleBackColor = true;
             // 
             // groupBoxLanguage
@@ -257,7 +256,7 @@ namespace FOConfigGUIWinForm
             // 
             this.comboBoxLanguage.FormattingEnabled = true;
             this.comboBoxLanguage.Items.AddRange(new object[] {
-            "engl"});
+            "English"});
             this.comboBoxLanguage.Location = new System.Drawing.Point(6, 19);
             this.comboBoxLanguage.Name = "comboBoxLanguage";
             this.comboBoxLanguage.Size = new System.Drawing.Size(168, 21);
@@ -352,7 +351,7 @@ namespace FOConfigGUIWinForm
             this.numericUpDownScrollStep.Size = new System.Drawing.Size(80, 20);
             this.numericUpDownScrollStep.TabIndex = 4;
             this.numericUpDownScrollStep.Value = new decimal(new int[] {
-            30,
+            12,
             0,
             0,
             0});
@@ -374,7 +373,7 @@ namespace FOConfigGUIWinForm
             this.numericUpDownScrollDelay.Size = new System.Drawing.Size(80, 20);
             this.numericUpDownScrollDelay.TabIndex = 3;
             this.numericUpDownScrollDelay.Value = new decimal(new int[] {
-            30,
+            10,
             0,
             0,
             0});
@@ -447,11 +446,6 @@ namespace FOConfigGUIWinForm
             this.numericUpDownDamageHitDelay.Name = "numericUpDownDamageHitDelay";
             this.numericUpDownDamageHitDelay.Size = new System.Drawing.Size(80, 20);
             this.numericUpDownDamageHitDelay.TabIndex = 7;
-            this.numericUpDownDamageHitDelay.Value = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
             // 
             // labelDamageHitDelay
             // 
@@ -476,22 +470,22 @@ namespace FOConfigGUIWinForm
             // radioButtonMessagesBrief
             // 
             this.radioButtonMessagesBrief.AutoSize = true;
-            this.radioButtonMessagesBrief.Checked = true;
             this.radioButtonMessagesBrief.Location = new System.Drawing.Point(93, 19);
             this.radioButtonMessagesBrief.Name = "radioButtonMessagesBrief";
             this.radioButtonMessagesBrief.Size = new System.Drawing.Size(46, 17);
             this.radioButtonMessagesBrief.TabIndex = 1;
-            this.radioButtonMessagesBrief.TabStop = true;
             this.radioButtonMessagesBrief.Text = "Brief";
             this.radioButtonMessagesBrief.UseVisualStyleBackColor = true;
             // 
             // radioButtonMessagesVerbose
             // 
             this.radioButtonMessagesVerbose.AutoSize = true;
+            this.radioButtonMessagesVerbose.Checked = true;
             this.radioButtonMessagesVerbose.Location = new System.Drawing.Point(6, 19);
             this.radioButtonMessagesVerbose.Name = "radioButtonMessagesVerbose";
             this.radioButtonMessagesVerbose.Size = new System.Drawing.Size(64, 17);
             this.radioButtonMessagesVerbose.TabIndex = 0;
+            this.radioButtonMessagesVerbose.TabStop = true;
             this.radioButtonMessagesVerbose.Text = "Verbose";
             this.radioButtonMessagesVerbose.UseVisualStyleBackColor = true;
             // 
@@ -520,22 +514,22 @@ namespace FOConfigGUIWinForm
             // radioButtonIndicatorLines
             // 
             this.radioButtonIndicatorLines.AutoSize = true;
+            this.radioButtonIndicatorLines.Checked = true;
             this.radioButtonIndicatorLines.Location = new System.Drawing.Point(6, 42);
             this.radioButtonIndicatorLines.Name = "radioButtonIndicatorLines";
             this.radioButtonIndicatorLines.Size = new System.Drawing.Size(50, 17);
             this.radioButtonIndicatorLines.TabIndex = 1;
+            this.radioButtonIndicatorLines.TabStop = true;
             this.radioButtonIndicatorLines.Text = "Lines";
             this.radioButtonIndicatorLines.UseVisualStyleBackColor = true;
             // 
             // radioButtonIndicatorBoth
             // 
             this.radioButtonIndicatorBoth.AutoSize = true;
-            this.radioButtonIndicatorBoth.Checked = true;
             this.radioButtonIndicatorBoth.Location = new System.Drawing.Point(6, 19);
             this.radioButtonIndicatorBoth.Name = "radioButtonIndicatorBoth";
             this.radioButtonIndicatorBoth.Size = new System.Drawing.Size(81, 17);
             this.radioButtonIndicatorBoth.TabIndex = 0;
-            this.radioButtonIndicatorBoth.TabStop = true;
             this.radioButtonIndicatorBoth.Text = "Both modes";
             this.radioButtonIndicatorBoth.UseVisualStyleBackColor = true;
             // 
@@ -859,12 +853,11 @@ namespace FOConfigGUIWinForm
             // 
             // labelFixedFPS
             // 
-            this.labelFixedFPS.AutoSize = true;
             this.labelFixedFPS.Location = new System.Drawing.Point(123, 184);
             this.labelFixedFPS.Name = "labelFixedFPS";
             this.labelFixedFPS.Size = new System.Drawing.Size(32, 26);
             this.labelFixedFPS.TabIndex = 14;
-            this.labelFixedFPS.Text = "Fixed\r\nFPS";
+            this.labelFixedFPS.Text = "Fixed FPS";
             // 
             // checkBoxAlwaysOnTop
             // 
@@ -889,8 +882,6 @@ namespace FOConfigGUIWinForm
             // checkBoxFullScreen
             // 
             this.checkBoxFullScreen.AutoSize = true;
-            this.checkBoxFullScreen.Checked = true;
-            this.checkBoxFullScreen.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxFullScreen.Location = new System.Drawing.Point(128, 105);
             this.checkBoxFullScreen.Name = "checkBoxFullScreen";
             this.checkBoxFullScreen.Size = new System.Drawing.Size(74, 17);
@@ -900,12 +891,11 @@ namespace FOConfigGUIWinForm
             // 
             // labelAnimation3dSmoothTime
             // 
-            this.labelAnimation3dSmoothTime.AutoSize = true;
             this.labelAnimation3dSmoothTime.Location = new System.Drawing.Point(16, 152);
             this.labelAnimation3dSmoothTime.Name = "labelAnimation3dSmoothTime";
             this.labelAnimation3dSmoothTime.Size = new System.Drawing.Size(56, 26);
             this.labelAnimation3dSmoothTime.TabIndex = 10;
-            this.labelAnimation3dSmoothTime.Text = "3d smooth\r\ntransition";
+            this.labelAnimation3dSmoothTime.Text = "3d smooth transition";
             // 
             // numericUpDownAnimation3dSmoothTime
             // 
@@ -918,6 +908,11 @@ namespace FOConfigGUIWinForm
             this.numericUpDownAnimation3dSmoothTime.Name = "numericUpDownAnimation3dSmoothTime";
             this.numericUpDownAnimation3dSmoothTime.Size = new System.Drawing.Size(75, 20);
             this.numericUpDownAnimation3dSmoothTime.TabIndex = 9;
+            this.numericUpDownAnimation3dSmoothTime.Value = new decimal(new int[] {
+            250,
+            0,
+            0,
+            0});
             // 
             // numericUpDownAnimation3dFPS
             // 
@@ -1016,7 +1011,7 @@ namespace FOConfigGUIWinForm
             this.numericUpDownBaseTexture.Size = new System.Drawing.Size(75, 20);
             this.numericUpDownBaseTexture.TabIndex = 3;
             this.numericUpDownBaseTexture.Value = new decimal(new int[] {
-            512,
+            1024,
             0,
             0,
             0});
@@ -1038,7 +1033,7 @@ namespace FOConfigGUIWinForm
             this.numericUpDownFlushValue.Size = new System.Drawing.Size(75, 20);
             this.numericUpDownFlushValue.TabIndex = 2;
             this.numericUpDownFlushValue.Value = new decimal(new int[] {
-            250,
+            100,
             0,
             0,
             0});
@@ -1093,9 +1088,9 @@ namespace FOConfigGUIWinForm
             "1080"});
             this.comboBoxScreenHeight.FormattingEnabled = true;
             this.comboBoxScreenHeight.Items.AddRange(new object[] {
+            "768",
             "480",
             "600",
-            "768",
             "1024",
             "720",
             "768",
@@ -1120,9 +1115,9 @@ namespace FOConfigGUIWinForm
             "1920"});
             this.comboBoxScreenWidth.FormattingEnabled = true;
             this.comboBoxScreenWidth.Items.AddRange(new object[] {
+            "1024",
             "640",
             "800",
-            "1024",
             "1280",
             "1280",
             "1366",
