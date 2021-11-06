@@ -30,6 +30,7 @@ namespace FOConfigGUIWinForm
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FOConfigForm));
             this.tabControlMainContent = new System.Windows.Forms.TabControl();
             this.pageOther = new System.Windows.Forms.TabPage();
             this.groupBoxMisk = new System.Windows.Forms.GroupBox();
@@ -225,7 +226,7 @@ namespace FOConfigGUIWinForm
             // 
             this.checkBoxSoundNotify.Location = new System.Drawing.Point(6, 56);
             this.checkBoxSoundNotify.Name = "checkBoxSoundNotify";
-            this.checkBoxSoundNotify.Size = new System.Drawing.Size(105, 30);
+            this.checkBoxSoundNotify.Size = new System.Drawing.Size(238, 30);
             this.checkBoxSoundNotify.TabIndex = 1;
             this.checkBoxSoundNotify.Text = "Beep sound on not active game.";
             this.checkBoxSoundNotify.UseVisualStyleBackColor = true;
@@ -237,7 +238,7 @@ namespace FOConfigGUIWinForm
             this.checkBoxWinNotify.Location = new System.Drawing.Point(6, 20);
             this.checkBoxWinNotify.Name = "checkBoxWinNotify";
             this.checkBoxWinNotify.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBoxWinNotify.Size = new System.Drawing.Size(105, 30);
+            this.checkBoxWinNotify.Size = new System.Drawing.Size(238, 30);
             this.checkBoxWinNotify.TabIndex = 0;
             this.checkBoxWinNotify.Text = "Flush window on not active game.";
             this.checkBoxWinNotify.UseVisualStyleBackColor = true;
@@ -465,7 +466,7 @@ namespace FOConfigGUIWinForm
             this.groupBoxCombatMessagesType.Size = new System.Drawing.Size(250, 47);
             this.groupBoxCombatMessagesType.TabIndex = 4;
             this.groupBoxCombatMessagesType.TabStop = false;
-            this.groupBoxCombatMessagesType.Text = "Ammo amount display";
+            this.groupBoxCombatMessagesType.Text = "Combat messages";
             // 
             // radioButtonMessagesBrief
             // 
@@ -499,7 +500,7 @@ namespace FOConfigGUIWinForm
             this.groupBoxIndicatorType.Size = new System.Drawing.Size(250, 91);
             this.groupBoxIndicatorType.TabIndex = 3;
             this.groupBoxIndicatorType.TabStop = false;
-            this.groupBoxIndicatorType.Text = "Ammo amount display";
+            this.groupBoxIndicatorType.Text = "Ammo amount and deterioration display";
             // 
             // radioButtonIndicatorNumbers
             // 
@@ -1235,6 +1236,7 @@ namespace FOConfigGUIWinForm
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonPlay);
             this.Controls.Add(this.tabControlMainContent);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FOConfigForm";
             this.Text = "FOnline configurator";
             this.tabControlMainContent.ResumeLayout(false);
