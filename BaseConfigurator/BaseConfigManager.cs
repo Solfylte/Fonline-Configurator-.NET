@@ -8,9 +8,9 @@ namespace Configurator
 {
     public abstract class BaseConfigManager: IConfigManager
     {
-        private IDataManager dataManager;
+        protected IDataManager dataManager;
 
-        private Dictionary<string, string> сonfigSection;
+        protected Dictionary<string, string> сonfigSection;
 
         private Dictionary<Type, IConfigValueHandler> valueHandlers = new Dictionary<Type, IConfigValueHandler>();
 
@@ -52,8 +52,6 @@ namespace Configurator
             }
             return false;
         }
-
-        public string[] GetHeaders() => dataManager.GetHeaders();
 
         public void SetValue<T>(string key, T value)
         {

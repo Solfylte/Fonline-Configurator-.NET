@@ -8,7 +8,6 @@ namespace Configurator
     /// </summary>
     public interface IConfigManager
     {
-        string[] GetHeaders();
         void SwitchToConfigSection(string header);
         bool GetValue<T>(string key, out T value);
         void SetValue<T>(string key, T value);        
