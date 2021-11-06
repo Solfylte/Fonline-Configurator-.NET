@@ -837,7 +837,7 @@ namespace FOConfigGUIWinForm
             // 
             // numericUpDownFixedFPS
             // 
-            this.numericUpDownFixedFPS.Location = new System.Drawing.Point(169, 190);
+            this.numericUpDownFixedFPS.Location = new System.Drawing.Point(169, 205);
             this.numericUpDownFixedFPS.Maximum = new decimal(new int[] {
             200,
             0,
@@ -854,7 +854,7 @@ namespace FOConfigGUIWinForm
             // 
             // labelFixedFPS
             // 
-            this.labelFixedFPS.Location = new System.Drawing.Point(123, 184);
+            this.labelFixedFPS.Location = new System.Drawing.Point(123, 199);
             this.labelFixedFPS.Name = "labelFixedFPS";
             this.labelFixedFPS.Size = new System.Drawing.Size(32, 26);
             this.labelFixedFPS.TabIndex = 14;
@@ -862,45 +862,42 @@ namespace FOConfigGUIWinForm
             // 
             // checkBoxAlwaysOnTop
             // 
-            this.checkBoxAlwaysOnTop.AutoSize = true;
-            this.checkBoxAlwaysOnTop.Location = new System.Drawing.Point(128, 151);
+            this.checkBoxAlwaysOnTop.Location = new System.Drawing.Point(117, 170);
             this.checkBoxAlwaysOnTop.Name = "checkBoxAlwaysOnTop";
-            this.checkBoxAlwaysOnTop.Size = new System.Drawing.Size(92, 17);
+            this.checkBoxAlwaysOnTop.Size = new System.Drawing.Size(127, 26);
             this.checkBoxAlwaysOnTop.TabIndex = 13;
             this.checkBoxAlwaysOnTop.Text = "Always on top";
             this.checkBoxAlwaysOnTop.UseVisualStyleBackColor = true;
             // 
             // checkBoxVSync
             // 
-            this.checkBoxVSync.AutoSize = true;
-            this.checkBoxVSync.Location = new System.Drawing.Point(128, 128);
+            this.checkBoxVSync.Location = new System.Drawing.Point(117, 148);
             this.checkBoxVSync.Name = "checkBoxVSync";
-            this.checkBoxVSync.Size = new System.Drawing.Size(57, 17);
+            this.checkBoxVSync.Size = new System.Drawing.Size(127, 21);
             this.checkBoxVSync.TabIndex = 12;
             this.checkBoxVSync.Text = "VSync";
             this.checkBoxVSync.UseVisualStyleBackColor = true;
             // 
             // checkBoxFullScreen
             // 
-            this.checkBoxFullScreen.AutoSize = true;
-            this.checkBoxFullScreen.Location = new System.Drawing.Point(128, 105);
+            this.checkBoxFullScreen.Location = new System.Drawing.Point(117, 124);
             this.checkBoxFullScreen.Name = "checkBoxFullScreen";
-            this.checkBoxFullScreen.Size = new System.Drawing.Size(74, 17);
+            this.checkBoxFullScreen.Size = new System.Drawing.Size(127, 17);
             this.checkBoxFullScreen.TabIndex = 11;
             this.checkBoxFullScreen.Text = "Fullscreen";
             this.checkBoxFullScreen.UseVisualStyleBackColor = true;
             // 
             // labelAnimation3dSmoothTime
             // 
-            this.labelAnimation3dSmoothTime.Location = new System.Drawing.Point(16, 152);
+            this.labelAnimation3dSmoothTime.Location = new System.Drawing.Point(9, 173);
             this.labelAnimation3dSmoothTime.Name = "labelAnimation3dSmoothTime";
-            this.labelAnimation3dSmoothTime.Size = new System.Drawing.Size(56, 26);
+            this.labelAnimation3dSmoothTime.Size = new System.Drawing.Size(75, 29);
             this.labelAnimation3dSmoothTime.TabIndex = 10;
             this.labelAnimation3dSmoothTime.Text = "3d smooth transition";
             // 
             // numericUpDownAnimation3dSmoothTime
             // 
-            this.numericUpDownAnimation3dSmoothTime.Location = new System.Drawing.Point(6, 190);
+            this.numericUpDownAnimation3dSmoothTime.Location = new System.Drawing.Point(9, 205);
             this.numericUpDownAnimation3dSmoothTime.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -917,7 +914,7 @@ namespace FOConfigGUIWinForm
             // 
             // numericUpDownAnimation3dFPS
             // 
-            this.numericUpDownAnimation3dFPS.Location = new System.Drawing.Point(6, 125);
+            this.numericUpDownAnimation3dFPS.Location = new System.Drawing.Point(6, 148);
             this.numericUpDownAnimation3dFPS.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -929,10 +926,9 @@ namespace FOConfigGUIWinForm
             // 
             // labelAnimation3dFPS
             // 
-            this.labelAnimation3dFPS.AutoSize = true;
-            this.labelAnimation3dFPS.Location = new System.Drawing.Point(20, 105);
+            this.labelAnimation3dFPS.Location = new System.Drawing.Point(6, 124);
             this.labelAnimation3dFPS.Name = "labelAnimation3dFPS";
-            this.labelAnimation3dFPS.Size = new System.Drawing.Size(42, 13);
+            this.labelAnimation3dFPS.Size = new System.Drawing.Size(75, 21);
             this.labelAnimation3dFPS.TabIndex = 7;
             this.labelAnimation3dFPS.Text = "3d FPS";
             // 
@@ -958,35 +954,32 @@ namespace FOConfigGUIWinForm
             "14x",
             "15x",
             "16x"});
-            this.comboBoxMultiSampling.Location = new System.Drawing.Point(128, 66);
+            this.comboBoxMultiSampling.Location = new System.Drawing.Point(117, 88);
             this.comboBoxMultiSampling.Name = "comboBoxMultiSampling";
             this.comboBoxMultiSampling.Size = new System.Drawing.Size(116, 21);
             this.comboBoxMultiSampling.TabIndex = 2;
             // 
             // labelMultiSampling
             // 
-            this.labelMultiSampling.AutoSize = true;
-            this.labelMultiSampling.Location = new System.Drawing.Point(16, 69);
+            this.labelMultiSampling.Location = new System.Drawing.Point(16, 88);
             this.labelMultiSampling.Name = "labelMultiSampling";
-            this.labelMultiSampling.Size = new System.Drawing.Size(85, 13);
+            this.labelMultiSampling.Size = new System.Drawing.Size(104, 21);
             this.labelMultiSampling.TabIndex = 6;
             this.labelMultiSampling.Text = "Multisampling 3d";
             // 
             // labelBaseTexture
             // 
-            this.labelBaseTexture.AutoSize = true;
             this.labelBaseTexture.Location = new System.Drawing.Point(171, 16);
             this.labelBaseTexture.Name = "labelBaseTexture";
-            this.labelBaseTexture.Size = new System.Drawing.Size(64, 13);
+            this.labelBaseTexture.Size = new System.Drawing.Size(64, 28);
             this.labelBaseTexture.TabIndex = 5;
             this.labelBaseTexture.Text = "Texture size";
             // 
             // labelFlushValue
             // 
-            this.labelFlushValue.AutoSize = true;
-            this.labelFlushValue.Location = new System.Drawing.Point(84, 16);
+            this.labelFlushValue.Location = new System.Drawing.Point(91, 15);
             this.labelFlushValue.Name = "labelFlushValue";
-            this.labelFlushValue.Size = new System.Drawing.Size(71, 13);
+            this.labelFlushValue.Size = new System.Drawing.Size(71, 28);
             this.labelFlushValue.TabIndex = 4;
             this.labelFlushValue.Text = "Cache sprites";
             // 
@@ -997,7 +990,7 @@ namespace FOConfigGUIWinForm
             0,
             0,
             0});
-            this.numericUpDownBaseTexture.Location = new System.Drawing.Point(169, 32);
+            this.numericUpDownBaseTexture.Location = new System.Drawing.Point(169, 46);
             this.numericUpDownBaseTexture.Maximum = new decimal(new int[] {
             8192,
             0,
@@ -1019,7 +1012,7 @@ namespace FOConfigGUIWinForm
             // 
             // numericUpDownFlushValue
             // 
-            this.numericUpDownFlushValue.Location = new System.Drawing.Point(87, 32);
+            this.numericUpDownFlushValue.Location = new System.Drawing.Point(87, 46);
             this.numericUpDownFlushValue.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -1041,7 +1034,7 @@ namespace FOConfigGUIWinForm
             // 
             // numericUpDownLight
             // 
-            this.numericUpDownLight.Location = new System.Drawing.Point(6, 32);
+            this.numericUpDownLight.Location = new System.Drawing.Point(6, 46);
             this.numericUpDownLight.Maximum = new decimal(new int[] {
             50,
             0,
@@ -1058,10 +1051,9 @@ namespace FOConfigGUIWinForm
             // 
             // labelLight
             // 
-            this.labelLight.AutoSize = true;
             this.labelLight.Location = new System.Drawing.Point(6, 16);
             this.labelLight.Name = "labelLight";
-            this.labelLight.Size = new System.Drawing.Size(30, 13);
+            this.labelLight.Size = new System.Drawing.Size(75, 28);
             this.labelLight.TabIndex = 0;
             this.labelLight.Text = "Light";
             // 
@@ -1269,7 +1261,6 @@ namespace FOConfigGUIWinForm
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRemotePort)).EndInit();
             this.pageVideo.ResumeLayout(false);
             this.groupBoxVideo.ResumeLayout(false);
-            this.groupBoxVideo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFixedFPS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAnimation3dSmoothTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAnimation3dFPS)).EndInit();
