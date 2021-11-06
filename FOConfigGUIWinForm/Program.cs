@@ -28,8 +28,10 @@ namespace FOConfigGUIWinForm
 
             FOConfigForm form = new FOConfigForm(config);
 
-            IDataManager localizationData = new FOnlineDataManager(new TextFileReader(), new TextFileWriter(), LOCALIZATION_CONFIG_NAME);
-            IConfigManager localization = new Localization(localizationData, "[engl]", form);
+            IDataManager localizationData = new FOnlineDataManager(new TextFileReader(), new TextFileWriter(), LOCALIZATION_CONFIG_NAME, true);
+            ILocalizationManager localization = new Localization(localizationData, "engl", form);
+
+            form.SetLocalizationConfig(localization);
 
             Application.Run(form);
         }

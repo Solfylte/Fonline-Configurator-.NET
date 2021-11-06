@@ -52,11 +52,13 @@
     <Compile Include="FOConfigForm.Designer.cs">
       <DependentUpon>FOConfigForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ILocalizationManager.cs" />
     <Compile Include="Localization.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FOConfigForm.resx">
       <DependentUpon>FOConfigForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

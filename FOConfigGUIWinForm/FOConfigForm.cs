@@ -19,21 +19,18 @@ namespace FOConfigGUIWinForm
         private const string FONLINE_APP_NAME = "FOnline.exe";
 
         private IConfigManager config;
+        private ILocalizationManager localization;
 
         private CombatMode combatMode;
         private IndicatorType indicatorType;
         private CombatMessageType combatMessageType;
         private ProxyType proxyType;
 
-        private Dictionary<string, string> localizationHeaders = new Dictionary<string, string>();
-
         public FOConfigForm(IConfigManager config)
         {
             this.config = config;
 
             InitializeComponent();
-
-            UpdateLocalization();
 
             UpdateOtherValuesPage();
             UpdateGameValuesPage();
@@ -43,9 +40,16 @@ namespace FOConfigGUIWinForm
             UpdateSoundValuesPage();
         }
 
+        public void SetLocalizationConfig(ILocalizationManager localization)
+        {
+            this.localization = localization;
+            comboBoxLanguage.Items.AddRange(localization.GetLanguageHeaders());
+            UpdateCombobox("Language", comboBoxLanguage);
+            localization.SetLanguage(comboBoxLanguage.Items[comboBoxLanguage.SelectedIndex].ToString());
+        }
+
         private void UpdateOtherValuesPage()
         {
-            UpdateCombobox("Language", comboBoxLanguage);
             UpdateCheckBox("WinNotify", checkBoxWinNotify);
             UpdateCheckBox("SoundNotify", checkBoxSoundNotify);
             UpdateCheckBox("InvertMessBox", checkBoxInvertMessBox);
@@ -182,7 +186,7 @@ namespace FOConfigGUIWinForm
                 comboBox.SelectedIndex = 0;
 
             if (config.GetValue<string>(key, out string value))
-                comboBox.SelectedValue = value;
+                comboBox.SelectedIndex = comboBox.FindString(value);
             else
                 SetValue(key, (string)comboBox.SelectedValue);
         }
@@ -318,28 +322,9 @@ namespace FOConfigGUIWinForm
             comboBoxScreenWidth.SelectedIndex = comboBoxScreenHeight.SelectedIndex;
         }
 
-        #region localization
-        private void UpdateLocalization()
-        {
-            /*string[] headers = localizationConfig.GetHeaders();
-
-            string languageName = localizationConfig.GetValue<string>("languageName");*/
-
-          /*  foreach (var header in headers)
-            {
-                localizationConfig.SwitchToConfigSection(header);
-                string languageName = localizationConfig.GetValue<string>("languageName");
-                //localizationHeaders.Add(languageName, header);
-            }       */         
-
-            //comboBoxLanguage.Items.AddRange(localizationHeaders.Keys.ToArray<string>());
-            //comboBoxLanguage.SelectedIndex = 0;
-        }
-
         private void comboBoxLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // TO DO: change languages
+            localization.SetLanguage(comboBoxLanguage.Items[comboBoxLanguage.SelectedIndex].ToString());
         }
-        #endregion
     }
 }

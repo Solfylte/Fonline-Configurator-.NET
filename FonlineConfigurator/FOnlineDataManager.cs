@@ -14,9 +14,12 @@ namespace FOConfig
 
         private string currentHeader = "";
 
-        public FOnlineDataManager(IReader reader, IWriter writer, string path) 
+        private bool isSaveSpaces = false;
+
+        public FOnlineDataManager(IReader reader, IWriter writer, string path, bool isSaveSpaces = false) 
                                 : base(reader, writer, path)
         {
+            this.isSaveSpaces = isSaveSpaces;
             FillConfigurationSections();
         }
 
@@ -64,13 +67,21 @@ namespace FOConfig
 
         private void AddСonfigLine(string line)
         {
-            string formatedLine = GetLineWithoutSpaces(line);
-            string[] keyValuePair = formatedLine.Split(new char[] { '=' }, 2);
+            string[] keyValuePair = line.Split(new char[] { '=' }, 2);
+            keyValuePair[0] = GetLineWithoutSpaces(keyValuePair[0]);
 
             if (keyValuePair.Length > 1 && !ConfigurationFileSections[currentHeader].ContainsKey(keyValuePair[0]))
+            {
+                if(!isSaveSpaces)
+                    keyValuePair[1] = GetLineWithoutSpaces(keyValuePair[1]);
+
                 ConfigurationFileSections[currentHeader].Add(keyValuePair[0], keyValuePair[1]);
+            }
         }
 
-        private string GetLineWithoutSpaces(string line) => line.Replace(" ", "").Replace("\t", "");
+        private string GetLineWithoutSpaces(string line)
+        {
+            return line.Replace(" ", "").Replace("\t", "");
+        }
     }
 }

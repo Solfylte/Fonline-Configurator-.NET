@@ -8,16 +8,18 @@ using Configurator;
 
 namespace FOConfigGUIWinForm
 {
-    class Localization : BaseConfigManager
+    class Localization : BaseConfigManager, ILocalizationManager
     {
         private Control[] controls;
+        Dictionary<string, string> defaultLocalization = new Dictionary<string, string>();
 
         public Localization(IDataManager dataManager, string defaultConfigHeader, FOConfigForm form) : base(dataManager, defaultConfigHeader)
         {
             controls = GetControls(form).ToArray();
+            defaultLocalization = GetDefaultLocalization();
         }
 
-        public IEnumerable<Control> GetControls(Control control)
+        private IEnumerable<Control> GetControls(Control control)
         {
             var controls = control.Controls.Cast<Control>();
 
@@ -44,5 +46,41 @@ namespace FOConfigGUIWinForm
 
             return defaultLocalization;
         }
+
+        public string[] GetLanguageHeaders()
+        {
+            string[] headers = dataManager.GetHeaders();
+            for (int i = 0; i < headers.Length; i++)
+                headers[i] = headers[i].Replace("[", "").Replace("]","");
+
+            return headers;
+        }
+
+        public void SetLanguage(string header)
+        {
+            if (IsDefaultFormLanguage(header))
+                SetDefaultLanguage();
+            else
+            {
+                SwitchToConfigSection($"[{header}]");
+                SetLanguageFromCurrentSection();
+            }    
+        }
+
+        private void SetDefaultLanguage()
+        {
+            for (int i = 0; i < controls.Length; i++)
+                if (defaultLocalization.ContainsKey(controls[i].Name))
+                    controls[i].Text = defaultLocalization[controls[i].Name];
+        }
+
+        private void SetLanguageFromCurrentSection()
+        {
+            for (int i = 0; i < controls.Length; i++)
+                if (GetValue<string>(controls[i].Name, out string value))
+                    controls[i].Text = value;
+        }
+
+        private bool IsDefaultFormLanguage(string header) => header == defaultConfigHeader;
     }
 }
