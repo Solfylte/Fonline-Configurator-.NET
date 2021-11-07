@@ -17,8 +17,10 @@ checkBoxLogging = Logowanie do 'Fonline.log'.
 e.t.c.
 
 ##Project structure
+FOConfigForm - windows form implementation.
 Configurator.dll - common library for work with .cfg files. 
 FonlineConfigurator.dll - narrowly focused library for working FOnline.
+/Release/ folder - already compiled project with *.cfg examples.
 
 ## Others
 
